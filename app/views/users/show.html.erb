@@ -4,7 +4,7 @@
 <p>QR code value: <%= @user.qr_code %></p>
 
 <% if @user.qr_code.present? %>
-  <div><%= @user.qr_code_svg.html_safe %></div>
+  <div><%= sanitize(@user.qr_code_svg, tags: %w[svg path], attributes: %w[xmlns viewBox width height fill d]) %></div>
 <% end %>
 
 <%= link_to "Back to players", users_path %>
