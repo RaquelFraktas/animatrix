@@ -3,7 +3,7 @@ require "rqrcode"
 class User < ApplicationRecord
   VALID_STATUSES = %w[alive killed].freeze
 
-  validates_uniqueness_of :name
+  validates :name, uniqueness: true, allow_nil: true
   validates :kill_count, numericality: { only_integer: true, greater_than_or_equal_to: 0 }
   validates :qr_code, uniqueness: true, allow_blank: true
 

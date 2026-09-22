@@ -1,20 +1,33 @@
 <h1>Scan QR to initialize player</h1>
 
-<div data-controller="qr-reader">
+<div>
   <%= form_with url: scan_path, method: :post do |form| %>
-    <div>
-      <%= form.label :qr_code, "QR code value" %>
-      <%= form.text_field :qr_code, placeholder: "Paste scanned code here", data: { qr_reader_target: "input" } %>
-    </div>
+    <%= form.hidden_field :qr_code, value: params[:qr_code] %>
 
-    <%= form.submit "Initialize player" %>
+    <%# <div> %>
+      <%# <%= form.label :killer_id, "Your player" %> %>
+      <%# <%= form.collection_select :killer_id, @players, :id, :name, { selected: current_user&.id, include_blank: "Choose your player" }, { required: true } %> %>
+    <%# </div> %>
+
+    <%= form.submit "Scan player" %>
   <% end %>
 
-  <div>
-    <%= text_field_tag :scan_result, nil, readonly: true, data: { qr_reader_target: "output" } %>
-  </div>
+  <% if @user.name.blank? %>
+    <div>
+      <h2>This QR code needs a name</h2>
+      <% if @unnamed_user.errors.any? %>
+        <p><%= @unnamed_user.errors.full_messages.to_sentence %></p>
+      <% end %>
+      <%= form_with url: scan_path, method: :post do |form| %>
+        <%= form.hidden_field :killer_id, value: params[:killer_id] %>
+        <%= form.hidden_field :qr_code, value: @unnamed_user.qr_code %>
+        <%= form.label :target_name, "Player name" %>
+        <%= form.text_field :target_name, required: true, autofocus: true %>
+        <%= form.submit "Save name and finish scan" %>
+      <% end %>
+    </div>
+  <% end %>
 
-  <button type="button" data-action="click->qr-reader#capture">Use scanned code</button>
 </div>
 
 <%= link_to "Back to players", users_path %>

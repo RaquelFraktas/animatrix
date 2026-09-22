@@ -10,6 +10,12 @@ class UserTest < ActiveSupport::TestCase
     assert_equal [], user.killed_user_ids
   end
 
+  test "allows a user without a name" do
+    user = User.create!
+
+    assert_nil user.name
+  end
+
   test "status must be alive or killed" do
     user = User.new(name: "Grace", status: "zombie")
 
@@ -27,6 +33,6 @@ class UserTest < ActiveSupport::TestCase
     assert created.persisted?
     assert_equal "scan-456", created.qr_code
     assert_equal "alive", created.status
-    assert_equal "Player 2", created.name
+    assert_nil created.name
   end
 end

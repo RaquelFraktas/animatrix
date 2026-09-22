@@ -12,11 +12,65 @@ class UsersController < ApplicationController
     @user = User.new(qr_code: params[:qr_code])
   end
 
+  def scan
+    # @players = User.where(status: "alive").where.not(name: nil).order(:name)
+    return unless request.post?
+
+    code = params[:qr_code].to_s.strip
+    killer = User.find_by(id: params[:killer_id])
+
+    if code.blank?
+      redirect_to scan_path, alert: "No QR code was provided."
+      return
+    end
+
+    unless killer&.alive?
+      redirect_to scan_path, alert: "Choose your player before scanning."
+      return
+    end
+
+    session[:user_id] = killer.id
+    user = User.find_by(qr_code: code)
+
+    if user.nil?
+      redirect_to new_user_path(qr_code: code), notice: "That QR code is not attached to a player yet."
+      return
+    end
+
+    if user.name.blank?
+      name = params[:target_name].to_s.strip
+
+      if name.present?
+        unless user.update(name: name)
+          @unnamed_user = user
+          render :scan, status: :unprocessable_entity
+          return
+        end
+      else
+        @unnamed_user = user
+        render :scan, status: :unprocessable_entity
+        return
+      end
+    end
+
+    if user.killed?
+      redirect_to user, notice: "#{user.name} is already killed."
+      return
+    end
+
+    if killer == user
+      redirect_to user, alert: "You cannot kill yourself."
+      return
+    end
+
+    killer.kill!(user)
+    redirect_to user, notice: "#{user.name} was killed by #{killer.name}."
+  end
+
   def create
     @user = User.new(
       user_params.merge(
         qr_code: params[:qr_code].presence || user_params[:qr_code].presence || "user-#{SecureRandom.uuid}",
-        name: user_params[:name].presence || "Player #{User.count + 1}",
         status: "alive"
       )
     )
@@ -42,35 +96,6 @@ class UsersController < ApplicationController
   def destroy
     @user.destroy
     redirect_to users_url, notice: "Player removed."
-  end
-
-  def scan
-    code = params[:qr_code].to_s.strip
-
-    if code.blank?
-      redirect_to users_path, alert: "No QR code was provided."
-      return
-    end
-
-    user = User.find_by(qr_code: code)
-
-    if user.nil?
-      redirect_to new_user_path(qr_code: code), notice: "That QR code is not attached to a player yet."
-      return
-    end
-
-    if user.name.blank?
-      redirect_to new_user_path(qr_code: code), notice: "This player still needs a name."
-      return
-    end
-
-    if user.killed?
-      redirect_to user, notice: "#{user.name} is already killed."
-      return
-    end
-
-    user.update!(status: "killed")
-    redirect_to user, notice: "#{user.name} was killed."
   end
 
   private
