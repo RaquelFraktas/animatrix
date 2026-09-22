@@ -1,3 +1,4 @@
+require "base64"
 require "rqrcode"
 
 class User < ApplicationRecord
@@ -32,17 +33,13 @@ class User < ApplicationRecord
     )
   end
 
-  def qr_code_svg
+  def qr_code_png_data_uri
     return if qr_code.blank?
 
     qrcode = RQRCode::QRCode.new(scan_url)
-    qrcode.as_svg(
-      offset: 0,
-      color: "000",
-      shape_rendering: "crispEdges",
-      module_size: 4,
-      stand_alone: true
-    )
+    png = qrcode.as_png(size: 196, border_modules: 0).to_blob
+
+    "data:image/png;base64,#{Base64.strict_encode64(png)}"
   end
 
   def kill!(other_user)
