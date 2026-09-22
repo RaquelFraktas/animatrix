@@ -38,6 +38,22 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: "Player removed."
   end
 
+  def scan
+    @user = User.new
+  end
+
+  def initialize_from_qr
+    code = params[:qr_code].to_s.strip
+    @user = User.find_or_initialize_by_qr_code(code)
+
+    if @user.save
+      redirect_to @user, notice: "Player initialized from QR code."
+    else
+      flash.now[:alert] = @user.errors.full_messages.to_sentence
+      render :scan, status: :unprocessable_entity
+    end
+  end
+
   private
 
   def set_user

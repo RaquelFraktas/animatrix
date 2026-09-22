@@ -16,4 +16,17 @@ class UserTest < ActiveSupport::TestCase
     assert_not user.valid?
     assert_includes user.errors[:status], "must be either 'alive' or 'killed'"
   end
+
+  test "finds or initializes a user from a QR code" do
+    existing = User.create!(name: "Grace", qr_code: "scan-123")
+
+    found = User.find_or_initialize_by_qr_code("scan-123")
+    assert_equal existing.id, found.id
+
+    created = User.find_or_initialize_by_qr_code("scan-456")
+    assert created.persisted?
+    assert_equal "scan-456", created.qr_code
+    assert_equal "alive", created.status
+    assert_equal "Player 2", created.name
+  end
 end
