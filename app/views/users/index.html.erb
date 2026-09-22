@@ -1,0 +1,13 @@
+<h1>Players</h1>
+
+<%= link_to "New player", new_user_path %>
+
+<ul>
+  <% @users.each do |user| %>
+    <li>
+      <%= link_to user.name, user %>
+      — <%= user.status %>
+      — kills: <%= user.kill_count %>
+    </li>
+  <% end %>
+</ul>
