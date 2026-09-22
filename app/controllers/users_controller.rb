@@ -9,11 +9,17 @@ class UsersController < ApplicationController
   end
 
   def new
-    @user = User.new
+    @user = User.new(qr_code: params[:qr_code])
   end
 
   def create
-    @user = User.new(user_params)
+    @user = User.new(
+      user_params.merge(
+        qr_code: params[:qr_code].presence || user_params[:qr_code].presence || "user-#{SecureRandom.uuid}",
+        name: user_params[:name].presence || "Player #{User.count + 1}",
+        status: "alive"
+      )
+    )
 
     if @user.save
       redirect_to @user, notice: "Player created successfully."
@@ -39,19 +45,32 @@ class UsersController < ApplicationController
   end
 
   def scan
-    @user = User.new
-  end
-
-  def initialize_from_qr
     code = params[:qr_code].to_s.strip
-    @user = User.find_or_initialize_by_qr_code(code)
 
-    if @user.save
-      redirect_to @user, notice: "Player initialized from QR code."
-    else
-      flash.now[:alert] = @user.errors.full_messages.to_sentence
-      render :scan, status: :unprocessable_entity
+    if code.blank?
+      redirect_to users_path, alert: "No QR code was provided."
+      return
     end
+
+    user = User.find_by(qr_code: code)
+
+    if user.nil?
+      redirect_to new_user_path(qr_code: code), notice: "That QR code is not attached to a player yet."
+      return
+    end
+
+    if user.name.blank?
+      redirect_to new_user_path(qr_code: code), notice: "This player still needs a name."
+      return
+    end
+
+    if user.killed?
+      redirect_to user, notice: "#{user.name} is already killed."
+      return
+    end
+
+    user.update!(status: "killed")
+    redirect_to user, notice: "#{user.name} was killed."
   end
 
   private
@@ -61,6 +80,6 @@ class UsersController < ApplicationController
   end
 
   def user_params
-    params.require(:user).permit(:name, :status, :kill_count, :qr_code, killed_user_ids: [])
+    params.require(:user).permit(:name, :status, :qr_code, :kill_count, killed_user_ids: [])
   end
 end

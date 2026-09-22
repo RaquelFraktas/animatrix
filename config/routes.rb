@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :users
 
   get "scan", to: "users#scan"
-  post "scan", to: "users#initialize_from_qr"
+  post "scan", to: "users#scan"
 
   get "up" => "rails/health#show", as: :rails_health_check
   get "service-worker" => "rails/pwa#service_worker", as: :pwa_service_worker

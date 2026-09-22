@@ -523,3 +523,1429 @@ Processing by Rails::PwaController#manifest as JSON
 Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
 
 
+  [1m[35m (1.0ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8323670353230075585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (4.4ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+Migrating to CreateActiveStorageTables (20260922193244)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (33.0ms)[0m  [1m[35mCREATE TABLE "active_storage_blobs" ("id" bigserial primary key, "key" character varying NOT NULL, "filename" character varying NOT NULL, "content_type" character varying, "metadata" text, "service_name" character varying NOT NULL, "byte_size" bigint NOT NULL, "checksum" character varying, "created_at" timestamp(6) NOT NULL)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_blobs_on_key" ON "active_storage_blobs" ("key")[0m
+  [1m[35m (12.1ms)[0m  [1m[35mCREATE TABLE "active_storage_attachments" ("id" bigserial primary key, "name" character varying NOT NULL, "record_type" character varying NOT NULL, "record_id" bigint NOT NULL, "blob_id" bigint NOT NULL, "created_at" timestamp(6) NOT NULL, CONSTRAINT "fk_rails_c3b3935057"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (2.4ms)[0m  [1m[35mCREATE INDEX "index_active_storage_attachments_on_blob_id" ON "active_storage_attachments" ("blob_id")[0m
+  [1m[35m (4.4ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_attachments_uniqueness" ON "active_storage_attachments" ("record_type", "record_id", "name", "blob_id")[0m
+  [1m[35m (9.7ms)[0m  [1m[35mCREATE TABLE "active_storage_variant_records" ("id" bigserial primary key, "blob_id" bigint NOT NULL, "variation_digest" character varying NOT NULL, CONSTRAINT "fk_rails_993965df05"
+FOREIGN KEY ("blob_id")
+  REFERENCES "active_storage_blobs" ("id")
+)[0m
+  [1m[35m (2.0ms)[0m  [1m[35mCREATE UNIQUE INDEX "index_active_storage_variant_records_uniqueness" ON "active_storage_variant_records" ("blob_id", "variation_digest")[0m
+  [1m[36mActiveRecord::SchemaMigration Create (1.4ms)[0m  [1m[32mINSERT INTO "schema_migrations" ("version") VALUES ('20260922193244') RETURNING "version"[0m
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8323670353230075585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (2.8ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.5ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8323670353230075585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Reverting CreateActiveStorageTables (20260922193244)
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[35m (12.3ms)[0m  [1m[35mDROP TABLE "active_storage_variant_records"[0m
+  [1m[35m (2.3ms)[0m  [1m[35mDROP TABLE "active_storage_attachments"[0m
+  [1m[35m (1.3ms)[0m  [1m[35mDROP TABLE "active_storage_blobs"[0m
+  [1m[36mActiveRecord::SchemaMigration Destroy (2.7ms)[0m  [1m[31mDELETE FROM "schema_migrations" WHERE "schema_migrations"."version" = '20260922193244'[0m
+  [1m[36mTRANSACTION (10.5ms)[0m  [1m[35mCOMMIT[0m
+  [1m[35m (1.3ms)[0m  [1m[34mSELECT pg_advisory_unlock(8323670353230075585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT pg_try_advisory_lock(8323670353230075585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (1.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mActiveRecord::InternalMetadata Load (1.8ms)[0m  [1m[34mSELECT * FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = $1 ORDER BY "ar_internal_metadata"."key" ASC LIMIT 1[0m  [[nil, "environment"]]
+  [1m[35m (0.1ms)[0m  [1m[34mSELECT pg_advisory_unlock(8323670353230075585)[0m
+  [1m[36mActiveRecord::SchemaMigration Load (0.2ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (6.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-e6aa5516-a7d4-4976-b77b-eafe0ff30b98"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Grace"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-e6aa5516-a7d4-4976-b77b-eafe0ff30b98"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:43:26.495901"], ["updated_at", "2026-09-22 19:43:26.495901"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/new" for ::1 at 2026-09-22 15:45:36 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 18ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- rqrcode):
+  
+app/models/user.rb:1:in '<compiled>'
+app/controllers/users_controller.rb:12:in 'UsersController#new'
+Started GET "/users/new" for ::1 at 2026-09-22 15:46:04 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- rqrcode):
+  
+app/models/user.rb:1:in '<compiled>'
+app/controllers/users_controller.rb:12:in 'UsersController#new'
+Started GET "/users/new" for ::1 at 2026-09-22 15:47:37 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 11ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- rqrcode):
+  
+app/models/user.rb:1:in '<compiled>'
+app/controllers/users_controller.rb:12:in 'UsersController#new'
+Started GET "/users/new" for ::1 at 2026-09-22 15:47:53 -0400
+Processing by UsersController#new as HTML
+Completed 500 Internal Server Error in 10ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  
+LoadError (cannot load such file -- rqrcode):
+  
+app/models/user.rb:1:in '<compiled>'
+app/controllers/users_controller.rb:12:in 'UsersController#new'
+Started GET "/users/new" for ::1 at 2026-09-22 15:48:27 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (3.0ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 17.6ms | GC: 11.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.3ms | GC: 13.2ms)
+Completed 200 OK in 96ms (Views: 42.5ms | ActiveRecord: 22.7ms (0 queries, 0 cached) | GC: 13.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 15:48:27 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:48:29 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 5.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 15.0ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 16.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 15:48:29 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/qr" for ::1 at 2026-09-22 15:48:38 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/qr"):
+  
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-abc-123"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Count (2.1ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/models/user.rb:22:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Exists? (1.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-abc-123"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Create (4.0ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 5"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-abc-123"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:50:01.155903"], ["updated_at", "2026-09-22 19:50:01.155903"]]
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-abc-123"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-def-456"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:17:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/models/user.rb:22:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Exists? (0.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-def-456"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Create (0.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 6"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-def-456"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:50:01.166869"], ["updated_at", "2026-09-22 19:50:01.166869"]]
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:20:in 'User.find_or_initialize_by_qr_code'
+  [1m[36mUser Count (0.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/qr" for ::1 at 2026-09-22 15:50:13 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/qr"):
+  
+Started GET "/" for ::1 at 2026-09-22 15:50:16 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 12.1ms | GC: 0.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 53.9ms | GC: 9.9ms)
+Completed 200 OK in 77ms (Views: 50.4ms | ActiveRecord: 16.5ms (1 query, 0 cached) | GC: 13.3ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 15:50:16 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 1.3ms | GC: 0.0ms)
+Completed 200 OK in 4ms (Views: 2.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:50:18 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 7.8ms | GC: 1.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.0ms | GC: 1.2ms)
+Completed 200 OK in 15ms (Views: 10.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started GET "/scan" for ::1 at 2026-09-22 15:50:29 -0400
+Processing by UsersController#scan as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/scan.html.erb within layouts/application
+  Rendered users/scan.html.erb within layouts/application (Duration: 6.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.8ms | GC: 0.8ms)
+Completed 200 OK in 16ms (Views: 11.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:51:16 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 10.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.0ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 17.4ms | ActiveRecord: 9.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-271f98df-3366-48d0-b7b5-21ddf6762f1c"], ["LIMIT", 1]]
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Grace"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-271f98df-3366-48d0-b7b5-21ddf6762f1c"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:51:34.585898"], ["updated_at", "2026-09-22 19:51:34.585898"]]
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Count (0.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  [1m[36mUser Count (0.3ms)[0m  [1m[34mSELECT COUNT(*) FROM "users" WHERE "users"."qr_code" = $1[0m  [["qr_code", "user-271f98df-3366-48d0-b7b5-21ddf6762f1c"]]
+Started GET "/users" for ::1 at 2026-09-22 15:51:53 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 8.9ms | GC: 0.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | GC: 2.2ms)
+Completed 200 OK in 30ms (Views: 17.0ms | ActiveRecord: 9.2ms (1 query, 0 cached) | GC: 2.7ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 15:51:53 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/5" for ::1 at 2026-09-22 15:51:54 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 14.3ms | GC: 1.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.3ms | GC: 1.3ms)
+Completed 200 OK in 30ms (Views: 16.7ms | ActiveRecord: 5.9ms (1 query, 0 cached) | GC: 1.7ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:51:56 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.7ms | GC: 0.8ms)
+Completed 200 OK in 9ms (Views: 7.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:52:03 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.2ms | GC: 0.0ms)
+Completed 200 OK in 10ms (Views: 7.1ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 15:52:03 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"name" => "", "status" => "alive"}, "commit" => "Create User"}
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#create'
+  [1m[36mUser Exists? (17.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-7f7b1624-92d7-4fb0-8023-bc76af4d7e7f"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#create'
+  [1m[36mTRANSACTION (3.4ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#create'
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.3ms | GC: 0.0ms)
+Completed 422 Unprocessable Content in 36ms (Views: 3.0ms | ActiveRecord: 21.6ms (1 query, 0 cached) | GC: 0.3ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:52:06 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.1ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/7" for ::1 at 2026-09-22 15:52:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "7"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:77:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 26.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 27.8ms | GC: 0.0ms)
+Completed 200 OK in 31ms (Views: 28.0ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/info" for ::1 at 2026-09-22 15:52:11 -0400
+Processing by Rails::InfoController#index as HTML
+Redirected to http://localhost:3000/rails/info/routes
+Completed 302 Found in 3ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/rails/info/routes" for ::1 at 2026-09-22 15:52:11 -0400
+Processing by Rails::InfoController#routes as HTML
+  Rendering layout /Users/raquelfraktas/.rvm/gems/ruby-3.4.2/gems/railties-7.2.3/lib/rails/templates/layouts/application.html.erb
+  Rendering /Users/raquelfraktas/.rvm/gems/ruby-3.4.2/gems/railties-7.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application
+  Rendered collection of /Users/raquelfraktas/.rvm/gems/ruby-3.4.2/gems/actionpack-7.2.3/lib/action_dispatch/middleware/templates/routes/_route.html.erb [40 times] (Duration: 18.9ms | GC: 11.5ms)
+  Rendered /Users/raquelfraktas/.rvm/gems/ruby-3.4.2/gems/actionpack-7.2.3/lib/action_dispatch/middleware/templates/routes/_table.html.erb (Duration: 0.7ms | GC: 0.0ms)
+  Rendered /Users/raquelfraktas/.rvm/gems/ruby-3.4.2/gems/railties-7.2.3/lib/rails/templates/rails/info/routes.html.erb within layouts/application (Duration: 28.0ms | GC: 11.5ms)
+  Rendered layout /Users/raquelfraktas/.rvm/gems/ruby-3.4.2/gems/railties-7.2.3/lib/rails/templates/layouts/application.html.erb (Duration: 28.7ms | GC: 11.5ms)
+Completed 200 OK in 36ms (Views: 34.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 11.5ms)
+
+
+Started GET "/new" for ::1 at 2026-09-22 15:52:45 -0400
+  
+ActionController::RoutingError (No route matches [GET] "/new"):
+  
+Started GET "/" for ::1 at 2026-09-22 15:52:53 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 5.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.9ms | GC: 0.0ms)
+Completed 200 OK in 24ms (Views: 19.2ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 15:52:53 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 3ms (Views: 1.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:52:54 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 10.4ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 11.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTRANSACTION (0.6ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (19.2ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-5de5074e-1c15-44c8-bae0-56a3cfa72357"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 99"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-5de5074e-1c15-44c8-bae0-56a3cfa72357"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:53:48.730951"], ["updated_at", "2026-09-22 19:53:48.730951"]]
+  [1m[36mTRANSACTION (0.4ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Count (0.7ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+Started GET "/users" for ::1 at 2026-09-22 15:55:14 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 16.3ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.7ms | GC: 8.0ms)
+Completed 200 OK in 57ms (Views: 28.4ms | ActiveRecord: 14.7ms (1 query, 0 cached) | GC: 16.3ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:55:15 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.8ms)
+Completed 200 OK in 6ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:55:17 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 16.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.2ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 7.8ms | ActiveRecord: 13.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 15:55:17 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "commit" => "Generate QR code"}
+  [1m[36mUser Count (2.5ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-763edfe0-ad3d-4955-a8bf-ac4492fe90d8"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Create (7.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 9"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-763edfe0-ad3d-4955-a8bf-ac4492fe90d8"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:55:17.685009"], ["updated_at", "2026-09-22 19:55:17.685009"]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mTRANSACTION (1.8ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+Redirected to http://localhost:3000/users/9
+Completed 302 Found in 31ms (ActiveRecord: 14.4ms (3 queries, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/users/9" for ::1 at 2026-09-22 15:55:17 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "9"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 9], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 27.9ms | GC: 4.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 29.6ms | GC: 4.5ms)
+Completed 200 OK in 34ms (Views: 29.9ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 4.5ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:56:14 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.6ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 9.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 15:56:15 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "commit" => "Generate QR code"}
+  [1m[36mUser Count (2.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Exists? (2.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-c4268403-9de5-4ca9-a2d6-6c9f6e72709a"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Create (1.2ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 10"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-c4268403-9de5-4ca9-a2d6-6c9f6e72709a"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:56:16.004050"], ["updated_at", "2026-09-22 19:56:16.004050"]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mTRANSACTION (1.5ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+Redirected to http://localhost:3000/users/10
+Completed 302 Found in 27ms (ActiveRecord: 7.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2026-09-22 15:56:16 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 19.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.1ms | GC: 0.0ms)
+Completed 200 OK in 23ms (Views: 21.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:58:07 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (5.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 27.9ms | GC: 0.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.2ms | GC: 1.6ms)
+Completed 200 OK in 61ms (Views: 18.9ms | ActiveRecord: 38.8ms (1 query, 0 cached) | GC: 2.2ms)
+
+
+Started GET "/users/2" for ::1 at 2026-09-22 15:58:08 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 9.7ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | GC: 1.5ms)
+Completed 200 OK in 44ms (Views: 12.4ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 1.5ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 15:58:08 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 5.9ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 15:58:10 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "commit" => "Generate QR code"}
+  [1m[36mUser Count (23.9ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Exists? (4.9ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-ac65a3c6-3773-45ab-924d-83edaf92ac66"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Create (0.9ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 11"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-ac65a3c6-3773-45ab-924d-83edaf92ac66"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 19:58:10.319935"], ["updated_at", "2026-09-22 19:58:10.319935"]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+Redirected to http://localhost:3000/users/11
+Completed 302 Found in 53ms (ActiveRecord: 31.5ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/11" for ::1 at 2026-09-22 15:58:10 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "11"}
+  [1m[36mUser Load (11.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 18.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | GC: 0.0ms)
+Completed 200 OK in 33ms (Views: 20.4ms | ActiveRecord: 11.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:58:43 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (13.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 22.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.6ms | GC: 13.7ms)
+Completed 200 OK in 45ms (Views: 28.0ms | ActiveRecord: 13.4ms (1 query, 0 cached) | GC: 13.7ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:59:02 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 8.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.0ms | GC: 2.0ms)
+Completed 200 OK in 27ms (Views: 21.6ms | ActiveRecord: 1.9ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/users/11" for ::1 at 2026-09-22 15:59:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "11"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 43.3ms | GC: 11.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 44.9ms | GC: 11.1ms)
+Completed 200 OK in 50ms (Views: 45.2ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 11.1ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:59:05 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.1ms | GC: 0.2ms)
+Completed 200 OK in 8ms (Views: 6.5ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/users/6" for ::1 at 2026-09-22 15:59:06 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "6"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 16.4ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.9ms | GC: 1.4ms)
+Completed 200 OK in 24ms (Views: 19.8ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 15:59:07 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 5.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.6ms | GC: 0.4ms)
+Completed 200 OK in 10ms (Views: 6.5ms | ActiveRecord: 1.4ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/scan" for ::1 at 2026-09-22 16:00:26 -0400
+Processing by UsersController#scan as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/scan.html.erb within layouts/application
+  Rendered users/scan.html.erb within layouts/application (Duration: 5.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 9.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:00:26 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.5ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/6" for ::1 at 2026-09-22 16:00:34 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "6"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 32.1ms | GC: 3.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 38.5ms | GC: 3.5ms)
+Completed 200 OK in 49ms (Views: 39.4ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 3.5ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:00:36 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (7.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 14.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.0ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 16.5ms | ActiveRecord: 7.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/11" for ::1 at 2026-09-22 16:00:36 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "11"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 40.8ms | GC: 10.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 43.0ms | GC: 10.6ms)
+Completed 200 OK in 47ms (Views: 43.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 10.6ms)
+
+
+Started GET "/users/11" for ::1 at 2026-09-22 16:00:37 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 23.6ms | GC: 3.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 24.8ms | GC: 3.1ms)
+Completed 200 OK in 27ms (Views: 25.1ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 3.1ms)
+
+
+Started GET "/users/3" for ::1 at 2026-09-22 16:00:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 15.9ms | GC: 1.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 18.7ms | GC: 1.6ms)
+Completed 200 OK in 23ms (Views: 19.2ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 1.6ms)
+
+
+Started GET "/users/3" for ::1 at 2026-09-22 16:00:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 18.4ms | GC: 1.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.5ms | GC: 1.4ms)
+Completed 200 OK in 25ms (Views: 21.9ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 1.4ms)
+
+
+Started GET "/users/5" for ::1 at 2026-09-22 16:00:39 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 14.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.8ms | GC: 0.0ms)
+Completed 200 OK in 19ms (Views: 17.1ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/5" for ::1 at 2026-09-22 16:00:40 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "5"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 5], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 12.0ms | GC: 5.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.5ms | GC: 5.1ms)
+Completed 200 OK in 16ms (Views: 13.9ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 5.1ms)
+
+
+Started GET "/users/4" for ::1 at 2026-09-22 16:00:41 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 31.5ms | GC: 3.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.1ms | GC: 3.4ms)
+Completed 200 OK in 37ms (Views: 33.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 3.4ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:01:17 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 4.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.0ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 7.0ms | ActiveRecord: 1.8ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 16:01:18 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.7ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 4.8ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 6.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 1.2ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 16:01:19 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "commit" => "Generate QR code"}
+  [1m[36mUser Count (1.8ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:18:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Exists? (2.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-28dcf912-08c5-4055-bd16-ea556a64319e"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 12"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-28dcf912-08c5-4055-bd16-ea556a64319e"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 20:01:19.704819"], ["updated_at", "2026-09-22 20:01:19.704819"]]
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:22:in 'UsersController#create'
+Redirected to http://localhost:3000/users/12
+Completed 302 Found in 21ms (ActiveRecord: 6.8ms (3 queries, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/users/12" for ::1 at 2026-09-22 16:01:19 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "12"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 20.9ms | GC: 2.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 22.1ms | GC: 2.1ms)
+Completed 200 OK in 25ms (Views: 22.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 2.1ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:01:21 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.3ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 7.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.8ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 25.8ms | ActiveRecord: 1.3ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:02:02 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 21.1ms | GC: 7.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.1ms | GC: 10.5ms)
+Completed 200 OK in 63ms (Views: 32.5ms | ActiveRecord: 25.5ms (1 query, 0 cached) | GC: 10.5ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:02:02 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/10" for ::1 at 2026-09-22 16:02:03 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 19.1ms | GC: 3.8ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.2ms | GC: 3.9ms)
+Completed 200 OK in 35ms (Views: 21.8ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 3.9ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:02:26 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (21.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 26.3ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 30.7ms | GC: 0.2ms)
+Completed 200 OK in 34ms (Views: 9.9ms | ActiveRecord: 21.6ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/users/2" for ::1 at 2026-09-22 16:02:28 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "2"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 7.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.4ms | GC: 0.0ms)
+Completed 200 OK in 11ms (Views: 8.7ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/3" for ::1 at 2026-09-22 16:02:28 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "3"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 14.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 16.5ms | GC: 0.0ms)
+Completed 200 OK in 20ms (Views: 16.8ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:02:29 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.4ms | GC: 6.9ms)
+Completed 200 OK in 15ms (Views: 12.1ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 6.9ms)
+
+
+Started GET "/users/10" for ::1 at 2026-09-22 16:02:29 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:80:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 33.5ms | GC: 5.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.1ms | GC: 5.6ms)
+Completed 200 OK in 39ms (Views: 35.4ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 5.6ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 16:02:31 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 2.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 3.9ms | GC: 0.0ms)
+Completed 200 OK in 7ms (Views: 4.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/scan" for ::1 at 2026-09-22 16:02:31 -0400
+Processing by UsersController#scan as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/scan.html.erb within layouts/application
+  Rendered users/scan.html.erb within layouts/application (Duration: 4.1ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.9ms | GC: 0.1ms)
+Completed 200 OK in 10ms (Views: 8.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:04:32 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 11.2ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.8ms | GC: 0.0ms)
+Completed 200 OK in 48ms (Views: 17.0ms | ActiveRecord: 24.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/4" for ::1 at 2026-09-22 16:04:32 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "4"}
+  [1m[36mUser Load (11.1ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 25.0ms | GC: 7.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | GC: 7.3ms)
+Completed 200 OK in 47ms (Views: 29.0ms | ActiveRecord: 11.1ms (1 query, 0 cached) | GC: 7.3ms)
+
+
+Started GET "/users/7" for ::1 at 2026-09-22 16:04:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "7"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 21.1ms | GC: 4.3ms)
+  Rendered layout layouts/application.html.erb (Duration: 23.4ms | GC: 4.3ms)
+Completed 200 OK in 29ms (Views: 23.9ms | ActiveRecord: 0.7ms (1 query, 0 cached) | GC: 4.3ms)
+
+
+Started GET "/users/7" for ::1 at 2026-09-22 16:04:48 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "7"}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 7], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 17.3ms | GC: 0.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.2ms | GC: 0.9ms)
+Completed 200 OK in 30ms (Views: 19.6ms | ActiveRecord: 2.0ms (1 query, 0 cached) | GC: 0.9ms)
+
+
+Started GET "/users/1" for ::1 at 2026-09-22 16:04:49 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "1"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 16.7ms | GC: 6.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 19.3ms | GC: 6.6ms)
+Completed 200 OK in 23ms (Views: 20.0ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 6.6ms)
+
+
+  [1m[36mTRANSACTION (0.3ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-e573ffa4-c0f5-44a0-b370-c15b0257942e"], ["LIMIT", 1]]
+  [1m[36mUser Create (2.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player A"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-e573ffa4-c0f5-44a0-b370-c15b0257942e"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 20:06:14.567064"], ["updated_at", "2026-09-22 20:06:14.567064"]]
+  [1m[36mTRANSACTION (1.1ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-e573ffa4-c0f5-44a0-b370-c15b0257942e"], ["LIMIT", 1]]
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["qr_code", "user-e573ffa4-c0f5-44a0-b370-c15b0257942e"], ["id", 13], ["LIMIT", 1]]
+  [1m[36mUser Update (1.3ms)[0m  [1m[33mUPDATE "users" SET "status" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["status", "killed"], ["updated_at", "2026-09-22 20:06:14.582948"], ["id", 13]]
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mCOMMIT[0m
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-e573ffa4-c0f5-44a0-b370-c15b0257942e"], ["LIMIT", 1]]
+Started GET "/users" for ::1 at 2026-09-22 16:06:45 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 9.5ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.6ms | GC: 0.8ms)
+Completed 200 OK in 30ms (Views: 16.0ms | ActiveRecord: 11.1ms (1 query, 0 cached) | GC: 0.8ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:06:45 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.8ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/13" for ::1 at 2026-09-22 16:06:46 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "13"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 29.6ms | GC: 0.4ms)
+  Rendered layout layouts/application.html.erb (Duration: 31.4ms | GC: 0.4ms)
+Completed 200 OK in 36ms (Views: 31.8ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:06:47 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.5ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 6.0ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/13" for ::1 at 2026-09-22 16:06:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "13"}
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 39.1ms | GC: 15.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 40.7ms | GC: 15.9ms)
+Completed 200 OK in 71ms (Views: 41.3ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 15.9ms)
+
+
+Started GET "/users/12" for ::1 at 2026-09-22 16:06:50 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "12"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 30.8ms | GC: 1.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.4ms | GC: 2.0ms)
+Completed 200 OK in 36ms (Views: 32.8ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 2.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:06:52 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 6.1ms | GC: 0.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 7.8ms | GC: 0.2ms)
+Completed 200 OK in 9ms (Views: 6.5ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/users/13" for ::1 at 2026-09-22 16:06:52 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "13"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 13], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 29.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 32.6ms | GC: 0.0ms)
+Completed 200 OK in 35ms (Views: 32.9ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/6" for ::1 at 2026-09-22 16:06:52 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 18.1ms | GC: 3.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 20.0ms | GC: 3.7ms)
+Completed 200 OK in 23ms (Views: 20.4ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 3.7ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:06:55 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 6.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.2ms | GC: 0.6ms)
+Completed 200 OK in 15ms (Views: 11.4ms | ActiveRecord: 1.7ms (1 query, 0 cached) | GC: 0.6ms)
+
+
+Started GET "/users/10" for ::1 at 2026-09-22 16:06:56 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "10"}
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 10], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 32.4ms | GC: 4.6ms)
+  Rendered layout layouts/application.html.erb (Duration: 34.0ms | GC: 4.6ms)
+Completed 200 OK in 38ms (Views: 34.4ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 4.6ms)
+
+
+Started GET "/scan" for ::1 at 2026-09-22 16:07:43 -0400
+Processing by UsersController#scan as HTML
+Redirected to http://localhost:3000/users
+Completed 302 Found in 4ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:07:43 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 5.9ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 8.1ms | GC: 0.2ms)
+Completed 200 OK in 12ms (Views: 10.1ms | ActiveRecord: 1.5ms (1 query, 0 cached) | GC: 0.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:07:43 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/scan" for ::1 at 2026-09-22 16:07:47 -0400
+Processing by UsersController#scan as HTML
+Redirected to http://localhost:3000/users
+Completed 302 Found in 8ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:07:47 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.6ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 13.8ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.7ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 25.2ms | ActiveRecord: 1.6ms (1 query, 0 cached) | GC: 0.4ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:07:47 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.4ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "scan-qr-default-alive"], ["LIMIT", 1]]
+  [1m[36mUser Create (3.5ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "QR Init Check"], ["status", "alive"], ["kill_count", 0], ["qr_code", "scan-qr-default-alive"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 20:09:23.441114"], ["updated_at", "2026-09-22 20:09:23.441114"]]
+  [1m[36mTRANSACTION (0.8ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users" for ::1 at 2026-09-22 16:09:56 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (0.7ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 8.4ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 26.6ms | GC: 5.6ms)
+Completed 200 OK in 37ms (Views: 23.5ms | ActiveRecord: 9.7ms (1 query, 0 cached) | GC: 5.6ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:09:56 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 1.4ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/14" for ::1 at 2026-09-22 16:09:57 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "14"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 23.0ms | GC: 2.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.4ms | GC: 2.5ms)
+Completed 200 OK in 29ms (Views: 25.9ms | ActiveRecord: 0.5ms (1 query, 0 cached) | GC: 2.5ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:10:00 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (17.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 22.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | GC: 0.0ms)
+Completed 200 OK in 30ms (Views: 9.1ms | ActiveRecord: 17.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/11" for ::1 at 2026-09-22 16:10:00 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "11"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 11], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 34.2ms | GC: 4.9ms)
+  Rendered layout layouts/application.html.erb (Duration: 35.9ms | GC: 4.9ms)
+Completed 200 OK in 39ms (Views: 36.2ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 4.9ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 16:10:02 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 9.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 11.7ms | GC: 0.0ms)
+Completed 200 OK in 14ms (Views: 12.2ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:10:03 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (21.2ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 24.0ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.9ms | GC: 0.0ms)
+Completed 200 OK in 27ms (Views: 5.0ms | ActiveRecord: 21.2ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 16:10:04 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"qr_code" => ""}, "commit" => "Generate QR code"}
+  [1m[36mUser Count (1.4ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mUser Exists? (1.8ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-90931f55-7f8f-4e18-a121-25675e091dbf"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mUser Create (1.3ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 15"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-90931f55-7f8f-4e18-a121-25675e091dbf"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 20:10:04.223563"], ["updated_at", "2026-09-22 20:10:04.223563"]]
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mTRANSACTION (1.2ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+Redirected to http://localhost:3000/users/15
+Completed 302 Found in 16ms (ActiveRecord: 5.8ms (3 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/15" for ::1 at 2026-09-22 16:10:04 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "15"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 31.9ms | GC: 7.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.2ms | GC: 7.5ms)
+Completed 200 OK in 36ms (Views: 33.5ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 7.5ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:10:37 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (3.1ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 8.6ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 13.7ms | GC: 0.0ms)
+Completed 200 OK in 18ms (Views: 11.3ms | ActiveRecord: 3.1ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/15" for ::1 at 2026-09-22 16:10:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "15"}
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 15], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 31.9ms | GC: 3.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 33.5ms | GC: 3.0ms)
+Completed 200 OK in 39ms (Views: 33.9ms | ActiveRecord: 0.8ms (1 query, 0 cached) | GC: 5.2ms)
+
+
+Started GET "/users/14" for ::1 at 2026-09-22 16:10:38 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "14"}
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 14], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 11.1ms | GC: 0.1ms)
+  Rendered layout layouts/application.html.erb (Duration: 12.9ms | GC: 0.1ms)
+Completed 200 OK in 15ms (Views: 13.2ms | ActiveRecord: 0.3ms (1 query, 0 cached) | GC: 0.1ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:10:40 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (1.0ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 3.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 6.6ms | GC: 0.0ms)
+Completed 200 OK in 8ms (Views: 5.9ms | ActiveRecord: 1.0ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/scan" for ::1 at 2026-09-22 16:10:49 -0400
+Processing by UsersController#scan as HTML
+Redirected to http://localhost:3000/users
+Completed 302 Found in 16ms (ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users" for ::1 at 2026-09-22 16:10:49 -0400
+Processing by UsersController#index as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/index.html.erb within layouts/application
+  [1m[36mUser Load (9.4ms)[0m  [1m[34mSELECT "users".* FROM "users" ORDER BY "users"."id" ASC[0m
+  ↳ app/views/users/index.html.erb:7
+  Rendered users/index.html.erb within layouts/application (Duration: 19.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 21.3ms | GC: 0.0ms)
+Completed 200 OK in 29ms (Views: 12.9ms | ActiveRecord: 9.4ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:10:50 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.3ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 1.6ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/12" for ::1 at 2026-09-22 16:15:31 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "12"}
+  [1m[36mUser Load (0.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 17.7ms | GC: 1.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 37.5ms | GC: 2.1ms)
+Completed 200 OK in 56ms (Views: 38.6ms | ActiveRecord: 9.7ms (1 query, 0 cached) | GC: 3.5ms)
+
+
+Started GET "/users/12" for ::1 at 2026-09-22 16:15:44 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "12"}
+  [1m[36mUser Load (0.9ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 12], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 45.5ms | GC: 12.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 49.0ms | GC: 12.2ms)
+Completed 200 OK in 66ms (Views: 49.9ms | ActiveRecord: 0.9ms (1 query, 0 cached) | GC: 12.2ms)
+
+
+Started GET "/users/new" for ::1 at 2026-09-22 16:15:45 -0400
+Processing by UsersController#new as HTML
+  Rendering layout layouts/application.html.erb
+  Rendering users/new.html.erb within layouts/application
+  Rendered users/new.html.erb within layouts/application (Duration: 1.5ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 2.7ms | GC: 0.0ms)
+Completed 200 OK in 5ms (Views: 3.0ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.4ms)
+
+
+Started POST "/users" for ::1 at 2026-09-22 16:15:47 -0400
+Processing by UsersController#create as TURBO_STREAM
+  Parameters: {"authenticity_token" => "[FILTERED]", "user" => {"qr_code" => ""}, "commit" => "Generate QR code"}
+  [1m[36mUser Count (2.2ms)[0m  [1m[34mSELECT COUNT(*) FROM "users"[0m
+  ↳ app/controllers/users_controller.rb:19:in 'UsersController#create'
+  [1m[36mTRANSACTION (0.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mUser Exists? (3.7ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "Player 16"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mUser Exists? (0.4ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "user-8236774f-a6f2-42b4-b6ec-71df4bd947d6"], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mUser Create (4.6ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "Player 16"], ["status", "alive"], ["kill_count", 0], ["qr_code", "user-8236774f-a6f2-42b4-b6ec-71df4bd947d6"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 20:15:47.261613"], ["updated_at", "2026-09-22 20:15:47.261613"]]
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+  [1m[36mTRANSACTION (1.7ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/users_controller.rb:24:in 'UsersController#create'
+Redirected to http://localhost:3000/users/16
+Completed 302 Found in 27ms (ActiveRecord: 13.0ms (4 queries, 0 cached) | GC: 1.3ms)
+
+
+Started GET "/users/16" for ::1 at 2026-09-22 16:15:47 -0400
+Processing by UsersController#show as TURBO_STREAM
+  Parameters: {"id" => "16"}
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:74:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 24.1ms | GC: 2.7ms)
+  Rendered layout layouts/application.html.erb (Duration: 25.5ms | GC: 2.7ms)
+Completed 200 OK in 28ms (Views: 25.8ms | ActiveRecord: 0.4ms (1 query, 0 cached) | GC: 2.7ms)
+
+
+  [1m[36mTRANSACTION (0.1ms)[0m  [1m[35mBEGIN[0m
+  [1m[36mUser Exists? (2.5ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."name" = $1 LIMIT $2[0m  [["name", "QR URL Check"], ["LIMIT", 1]]
+  [1m[36mUser Exists? (0.3ms)[0m  [1m[34mSELECT 1 AS one FROM "users" WHERE "users"."qr_code" = $1 LIMIT $2[0m  [["qr_code", "scan-qr-url"], ["LIMIT", 1]]
+  [1m[36mUser Create (4.4ms)[0m  [1m[32mINSERT INTO "users" ("name", "status", "kill_count", "qr_code", "killed_user_ids", "created_at", "updated_at") VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING "id"[0m  [["name", "QR URL Check"], ["status", "alive"], ["kill_count", 0], ["qr_code", "scan-qr-url"], ["killed_user_ids", "{}"], ["created_at", "2026-09-22 20:18:49.177260"], ["updated_at", "2026-09-22 20:18:49.177260"]]
+  [1m[36mTRANSACTION (1.0ms)[0m  [1m[35mCOMMIT[0m
+Started GET "/users/16" for ::1 at 2026-09-22 16:19:01 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "16"}
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 40.0ms | GC: 9.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 50.7ms | GC: 10.0ms)
+Completed 200 OK in 76ms (Views: 52.1ms | ActiveRecord: 17.9ms (1 query, 0 cached) | GC: 10.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:19:01 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.4ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/16" for ::1 at 2026-09-22 16:19:05 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "16"}
+  [1m[36mUser Load (1.2ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 60.6ms | GC: 16.2ms)
+  Rendered layout layouts/application.html.erb (Duration: 66.0ms | GC: 16.2ms)
+Completed 200 OK in 98ms (Views: 66.7ms | ActiveRecord: 1.2ms (1 query, 0 cached) | GC: 16.2ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:19:06 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.7ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/16" for ::1 at 2026-09-22 16:19:07 -0400
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "16"}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 48.4ms | GC: 3.5ms)
+  Rendered layout layouts/application.html.erb (Duration: 49.8ms | GC: 3.5ms)
+Completed 200 OK in 54ms (Views: 50.3ms | ActiveRecord: 0.6ms (1 query, 0 cached) | GC: 3.9ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:19:07 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.1ms | GC: 0.0ms)
+Completed 200 OK in 1ms (Views: 0.3ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/users/16" for ::1 at 2026-09-22 16:23:32 -0400
+  [1m[36mActiveRecord::SchemaMigration Load (2.7ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+Processing by UsersController#show as HTML
+  Parameters: {"id" => "16"}
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 16], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:79:in 'UsersController#set_user'
+  Rendering layout layouts/application.html.erb
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (Duration: 26.1ms | GC: 0.0ms)
+  Rendered layout layouts/application.html.erb (Duration: 51.9ms | GC: 0.0ms)
+Completed 200 OK in 129ms (Views: 54.0ms | ActiveRecord: 61.5ms (1 query, 0 cached) | GC: 0.0ms)
+
+
+Started GET "/manifest.json" for ::1 at 2026-09-22 16:23:32 -0400
+Processing by Rails::PwaController#manifest as JSON
+  Rendering pwa/manifest.json.erb
+  Rendered pwa/manifest.json.erb (Duration: 0.2ms | GC: 0.0ms)
+Completed 200 OK in 2ms (Views: 1.1ms | ActiveRecord: 0.0ms (0 queries, 0 cached) | GC: 0.0ms)
+
+

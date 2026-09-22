@@ -1,12 +1,20 @@
 <h1>Scan QR to initialize player</h1>
 
-<%= form_with url: scan_path, method: :post do |form| %>
+<div data-controller="qr-reader">
+  <%= form_with url: scan_path, method: :post do |form| %>
+    <div>
+      <%= form.label :qr_code, "QR code value" %>
+      <%= form.text_field :qr_code, placeholder: "Paste scanned code here", data: { qr_reader_target: "input" } %>
+    </div>
+
+    <%= form.submit "Initialize player" %>
+  <% end %>
+
   <div>
-    <%= form.label :qr_code, "QR code value" %>
-    <%= form.text_field :qr_code, placeholder: "Paste scanned code here" %>
+    <%= text_field_tag :scan_result, nil, readonly: true, data: { qr_reader_target: "output" } %>
   </div>
 
-  <%= form.submit "Initialize player" %>
-<% end %>
+  <button type="button" data-action="click->qr-reader#capture">Use scanned code</button>
+</div>
 
 <%= link_to "Back to players", users_path %>

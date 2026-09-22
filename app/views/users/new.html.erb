@@ -1,22 +1,10 @@
-<h1>New Player</h1>
+<h1>Generate Player QR</h1>
+
+<p>Create a new player and assign them their own unique QR code.</p>
 
 <%= form_with model: @user do |form| %>
-  <div>
-    <%= form.label :name %>
-    <%= form.text_field :name %>
-  </div>
-
-  <div>
-    <%= form.label :status %>
-    <%= form.select :status, User::VALID_STATUSES.map { |s| [s.humanize, s] }, include_blank: false %>
-  </div>
-
-  <div>
-    <%= form.label :qr_code %>
-    <%= form.text_area :qr_code %>
-  </div>
-
-  <%= form.submit %>
+  <%= form.hidden_field :qr_code, value: @user.qr_code %>
+  <%= form.submit "Generate QR code" %>
 <% end %>
 
 <%= link_to "Back to players", users_path %>
