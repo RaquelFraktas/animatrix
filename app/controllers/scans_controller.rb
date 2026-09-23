@@ -33,11 +33,10 @@ class ScansController < ApplicationController
           return
         end
       else
-        @unnamed_user = @user
         render :show, status: :unprocessable_entity
         return
       end
-
+      session[:user_id] = @user.id
       redirect_to users_path, notice: "Player name saved."
       return
     end
@@ -53,7 +52,7 @@ class ScansController < ApplicationController
     # end
 
     # killer.kill!(@user)
-    # redirect_to @user, notice: "#{@user.name} was killed by #{killer.name}."
+    redirect_to @user, notice: "#{@user.name} was killed by #{killer.name}."
   end
 
 
