@@ -1,5 +1,5 @@
 .env
-tmp*
-tmp/cache*
-log*
-cache*
+tmp/*
+tmp/cache/*
+log/*
+cache/*
