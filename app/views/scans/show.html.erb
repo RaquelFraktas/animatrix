@@ -13,20 +13,21 @@
   <% if @user.name.nil? %>
     <div>
       <h2>This QR code needs a name</h2>
-      <% if @user.errors.any? %>
-        <p><%= @unnamed_user.errors.full_messages.to_sentence %></p>
-      <% end %>
+
       <%= form_with url: scan_path, method: :post do |form| %>
-        <%= form.hidden_field :killer_id, value: params[:killer_id] %>
         <%= form.hidden_field :qr_code, value: @user.qr_code %>
         <%= form.label :target_name, "Player name" %>
         <%= form.text_field :target_name, required: true, autofocus: true %>
         <%= form.submit "Save name" %>
       <% end %>
     </div>
-  <% else %>
+  <% elsif @user.alive? %>
     <div>
       <h2>You just killed <%= @user.name %></h2>
+    </div>
+  <% elsif @user.killed? %>
+    <div>
+      <h2><%= @user.name %> is already dead.</h2>
     </div>
   <% end %>
 
