@@ -23,6 +23,11 @@
     </div>
   <% elsif @user.alive? %>
     <div>
+      <%= form_with url: scan_path, method: :post do |form| %>
+        <%= form.hidden_field :qr_code, value: @user.qr_code %>
+        <%= form.hidden_field :status, value: "killed" %>
+        <%= form.submit "Kill #{@user.name}" %>
+      <% end %>
       <h2>You just killed <%= @user.name %></h2>
     </div>
   <% elsif @user.killed? %>
