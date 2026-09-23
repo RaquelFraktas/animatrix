@@ -29,7 +29,6 @@ class ScansController < ApplicationController
 
       if name.present?
         unless @user.update(name: name)
-          # @unnamed_user = user
           render :show, status: :unprocessable_entity
           return
         end
@@ -38,6 +37,9 @@ class ScansController < ApplicationController
         render :show, status: :unprocessable_entity
         return
       end
+
+      redirect_to users_path, notice: "Player name saved."
+      return
     end
 
     # if @user.killed?
