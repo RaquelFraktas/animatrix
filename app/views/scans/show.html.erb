@@ -1,0 +1,35 @@
+<h1>scan/show page</h1>
+
+<div>
+  <%# <%= form_with url: scan_path, method: :post do |form| %> %>
+    <%# <%= form.hidden_field :qr_code, value: params[:qr_code] %> %>
+
+
+    <%# <%= form.submit "Scan player" %> %>
+  <%# <% end %> %>
+
+  <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}" %>
+
+  <% if @user.name.nil? %>
+    <div>
+      <h2>This QR code needs a name</h2>
+      <% if @user.errors.any? %>
+        <p><%= @unnamed_user.errors.full_messages.to_sentence %></p>
+      <% end %>
+      <%= form_with url: scan_path, method: :post do |form| %>
+        <%= form.hidden_field :killer_id, value: params[:killer_id] %>
+        <%= form.hidden_field :qr_code, value: @user.qr_code %>
+        <%= form.label :target_name, "Player name" %>
+        <%= form.text_field :target_name, required: true, autofocus: true %>
+        <%= form.submit "Save name" %>
+      <% end %>
+    </div>
+  <% else %>
+    <div>
+      <h2>You just killed <%= @user.name %></h2>
+    </div>
+  <% end %>
+
+</div>
+
+<%= link_to "Back to players", users_path %>

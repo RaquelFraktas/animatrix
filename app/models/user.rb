@@ -1,6 +1,3 @@
-require "base64"
-require "rqrcode"
-
 class User < ApplicationRecord
   VALID_STATUSES = %w[alive killed].freeze
 
