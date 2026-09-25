@@ -1,4 +1,12 @@
 class User < ApplicationRecord
+  has_many :kills_as_killer,
+           class_name: "Kill",
+           foreign_key: :killer_id
+
+  has_one :kill_record,
+          class_name: "Kill",
+          foreign_key: :victim_id
+
   VALID_STATUSES = %w[alive killed].freeze
 
   validates :name, uniqueness: true, allow_nil: true

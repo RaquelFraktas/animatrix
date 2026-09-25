@@ -10,18 +10,28 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.2].define(version: 2026_09_22_190000) do
+ActiveRecord::Schema[8.1].define(version: 2026_09_25_220533) do
   # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
+  enable_extension "pg_catalog.plpgsql"
+
+  create_table "kills", force: :cascade do |t|
+    t.datetime "created_at", null: false
+    t.bigint "killer_id", null: false
+    t.datetime "updated_at", null: false
+    t.bigint "victim_id", null: false
+    t.index ["killer_id"], name: "index_kills_on_killer_id"
+    t.index ["victim_id"], name: "index_kills_on_victim_id"
+  end
 
   create_table "users", force: :cascade do |t|
-    t.string "name"
-    t.string "status", default: "alive", null: false
-    t.integer "kill_count", default: 0, null: false
-    t.text "qr_code"
-    t.integer "killed_user_ids", default: [], null: false, array: true
     t.datetime "created_at", null: false
+    t.string "name"
+    t.text "qr_code"
+    t.string "status", default: "alive", null: false
     t.datetime "updated_at", null: false
     t.index ["status"], name: "index_users_on_status"
   end
+
+  add_foreign_key "kills", "users", column: "killer_id"
+  add_foreign_key "kills", "users", column: "victim_id"
 end
