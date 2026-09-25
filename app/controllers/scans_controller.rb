@@ -12,13 +12,6 @@ class ScansController < ApplicationController
       return
     end
 
-    # unless killer&.alive?
-    #   redirect_to scan_path, alert: "Choose your player before scanning."
-    #   return
-    # end
-
-    # session[:user_id] = killer.id
-
     if @user.nil?
       redirect_to new_user_path(qr_code: code), notice: "That QR code is not attached to a player yet."
       return
@@ -36,7 +29,7 @@ class ScansController < ApplicationController
         render :show, status: :unprocessable_entity
         return
       end
-      session[:user_id] = @user.id
+      @current_user = @user
       redirect_to users_path, notice: "Player name saved."
       return
     end
@@ -46,13 +39,11 @@ class ScansController < ApplicationController
     #   return
     # end
 
-    # if killer == @user
-    #   redirect_to @user, alert: "You cannot kill yourself."
-    #   return
-    # end
-
-    # killer.kill!(@user)
-    redirect_to @user, notice: "#{@user.name} was killed by #{killer.name}."
+    if @current_user == @user
+      redirect_to @user, alert: "You cannot kill yourself."
+      return
+    end
+    redirect_to @user, notice: "#{@user.name} was scanned by #{current_user&.name || 'an unauthenticated player'}."
   end
 
 

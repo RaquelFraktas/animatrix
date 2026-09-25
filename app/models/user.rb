@@ -47,14 +47,11 @@ class User < ApplicationRecord
     "data:image/png;base64,#{Base64.strict_encode64(png)}"
   end
 
-  def kill!(other_user)
-    return false if other_user == self || !other_user.alive?
-    return false if killed_user_ids.include?(other_user.id)
+  def kill!(victim)
+    return false if victim == self || !victim.alive?
+    return false if kills_as_killer.exists?(victim_id: victim.id)
 
-    self.killed_user_ids ||= []
-    self.killed_user_ids << other_user.id
-    self.kill_count = killed_user_ids.count
-    other_user.update!(status: "killed")
+    victim.update!(status: "killed")
     save!
   end
 
