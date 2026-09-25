@@ -28,7 +28,7 @@
         <%= form.hidden_field :status, value: "killed" %>
         <%= form.submit "Kill #{@user.name}" %>
       <% end %>
-      <h2>You just killed <%= @user.name %></h2>
+      <h2>You are about to kill <%= @user.name %></h2>
     </div>
   <% elsif @user.killed? %>
     <div>
