@@ -4,3 +4,4 @@ tmp/cache/*
 log/*
 tmp/cache/assets/sprockets/*
 **/tmp/
+log*
