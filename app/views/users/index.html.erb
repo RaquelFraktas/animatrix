@@ -8,7 +8,7 @@
     <li>
       <%= link_to user.name, user %>
       — <%= user.status %>
-      — kills: <%= user.kill_count %>
+      — kills: <%= user.kills_as_killer.count %>
     </li>
   <% end %>
 </ul>

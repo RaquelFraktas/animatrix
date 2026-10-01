@@ -1,11 +1,10 @@
 class ScansController < ApplicationController
   before_action :set_user_by_qr_code, only: %i[show]
-  def show
-    # @players = User.where(status: "alive").where.not(name: nil).order(:name)
-    return unless request.post?
-    code = params[:qr_code].to_s.strip
 
-    killer = User.find_by(id: params[:killer_id])
+  def show
+    return unless request.post?
+
+    code = params[:qr_code].to_s.strip
 
     if code.blank?
       redirect_to scan_path, alert: "No QR code was provided."
@@ -29,25 +28,33 @@ class ScansController < ApplicationController
         render :show, status: :unprocessable_entity
         return
       end
-      @current_user = @user
+
+      reset_session
+      session[:user_id] = @user.id
       redirect_to users_path, notice: "Player name saved."
       return
     end
 
-    # if @user.killed?
-    #   redirect_to @user, notice: "#{@user.name} is already killed."
-    #   return
-    # end
-
-    if @current_user == @user
-      redirect_to @user, alert: "You cannot kill yourself."
+    killer = current_user
+    unless killer&.alive?
+      redirect_to scan_path(qr_code: code), alert: "Sign in as a living player before scanning."
       return
     end
-    redirect_to @user, notice: "#{@user.name} was scanned by #{current_user&.name || 'an unauthenticated player'}."
+
+    if killer == @user
+      redirect_to scan_path(qr_code: code), alert: "You cannot kill yourself."
+      return
+    end
+
+    if killer.kill!(@user)
+      redirect_to users_path, notice: "#{@user.name} was killed by #{killer.name}."
+    else
+      redirect_to scan_path(qr_code: code), alert: "#{@user.name} is already dead or was already killed by you."
+    end
   end
 
 
-  private 
+  private
 
   def set_user_by_qr_code
     @user = User.find_by(qr_code: params[:qr_code])
