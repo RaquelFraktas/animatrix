@@ -1,6 +1,6 @@
 <h1><%= @user.name %></h1>
 <p>Status: <%= @user.status %></p>
-<p>Kill count: <%= @user.kill_count %></p>
+<p>Kill count: <%= @user.kills_as_killer.count %></p>
 <p>QR code value: <%= @user.qr_code %></p>
 
 <% if @user.qr_code.present? %>
