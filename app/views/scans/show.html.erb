@@ -1,15 +1,7 @@
 <h1>scan/show page</h1>
 
 <div>
-  <%# <%= form_with url: scan_path, method: :post do |form| %> %>
-    <%# <%= form.hidden_field :qr_code, value: params[:qr_code] %> %>
-
-
-    <%# <%= form.submit "Scan player" %> %>
-  <%# <% end %> %>
-
   <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}" %>
-
   <% if @user.name.nil? %>
     <div>
       <h2>This QR code needs a name</h2>
@@ -21,14 +13,12 @@
         <%= form.submit "Save name" %>
       <% end %>
     </div>
-  <% elsif @user.alive? %>
+  <% elsif @user.alive? && current_user != @user %>
     <div>
       <%= form_with url: scan_path, method: :post do |form| %>
         <%= form.hidden_field :qr_code, value: @user.qr_code %>
-        <%= form.hidden_field :status, value: "killed" %>
         <%= form.submit "Kill #{@user.name}" %>
       <% end %>
-      <h2>You are about to kill <%= @user.name %></h2>
     </div>
   <% elsif @user.killed? %>
     <div>
@@ -37,5 +27,4 @@
   <% end %>
 
 </div>
-
 <%= link_to "Back to players", users_path %>
