@@ -3,6 +3,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.order(:id)
+    @current_user = current_user
   end
 
   def show
@@ -32,7 +33,14 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    attributes = user_params
+
+    if @user.update(attributes)
+      if attributes[:name].present?
+        reset_session
+        session[:user_id] = @user.id
+      end
+
       redirect_to @user, notice: "Player updated successfully."
     else
       render :edit, status: :unprocessable_entity
