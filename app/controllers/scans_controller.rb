@@ -47,7 +47,18 @@ class ScansController < ApplicationController
     end
 
     if killer.kill!(@user)
-      redirect_to users_path, notice: "#{@user.name} was killed by #{killer.name}."
+      respond_to do |format|
+        format.turbo_stream do
+          render turbo_stream: turbo_stream.replace(
+            "scan_result",
+            partial: "scans/result_frame",
+            locals: { user: @user, redirect_after_kill: true }
+          )
+        end
+        format.html do
+          redirect_to scan_path(qr_code: code), notice: "#{@user.name} is dead."
+        end
+      end
     else
       redirect_to scan_path(qr_code: code), alert: "#{@user.name} is already dead or was already killed by you."
     end

@@ -1,0 +1,20 @@
+<% if user.name.nil? %>
+  <div>
+    <h2>This QR code needs a name</h2>
+    <%= form_with url: scan_path, method: :post do |form| %>
+      <%= form.hidden_field :qr_code, value: user.qr_code %>
+      <%= form.label :target_name, "Player name" %>
+      <%= form.text_field :target_name, required: true, autofocus: true %>
+      <%= form.submit "Save name" %>
+    <% end %>
+  </div>
+<% elsif user.killed? %>
+  <h2><%= user.name %> is dead.</h2>
+<% elsif user.alive? && current_user != user %>
+  <div>
+    <%= form_with url: scan_path, method: :post do |form| %>
+      <%= form.hidden_field :qr_code, value: user.qr_code %>
+      <%= form.submit "Kill #{user.name}" %>
+    <% end %>
+  </div>
+<% end %>

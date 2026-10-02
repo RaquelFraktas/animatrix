@@ -2,29 +2,7 @@
 
 <div>
   <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}" %>
-  <% if @user.name.nil? %>
-    <div>
-      <h2>This QR code needs a name</h2>
-
-      <%= form_with url: scan_path, method: :post do |form| %>
-        <%= form.hidden_field :qr_code, value: @user.qr_code %>
-        <%= form.label :target_name, "Player name" %>
-        <%= form.text_field :target_name, required: true, autofocus: true %>
-        <%= form.submit "Save name" %>
-      <% end %>
-    </div>
-  <% elsif @user.alive? && current_user != @user %>
-    <div>
-      <%= form_with url: scan_path, method: :post do |form| %>
-        <%= form.hidden_field :qr_code, value: @user.qr_code %>
-        <%= form.submit "Kill #{@user.name}" %>
-      <% end %>
-    </div>
-  <% elsif @user.killed? %>
-    <div>
-      <h2><%= @user.name %> is already dead.</h2>
-    </div>
-  <% end %>
-
+  <%= render "result_frame", user: @user, redirect_after_kill: false %>
 </div>
+
 <%= link_to "Back to players", users_path %>
