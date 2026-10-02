@@ -1,6 +1,15 @@
 require "test_helper"
 
 class UsersControllerTest < ActionDispatch::IntegrationTest
+  test "updating a user's name logs that user in" do
+    user = users(:one)
+
+    patch user_path(user), params: { user: { name: "Updated Name" } }
+
+    assert_redirected_to user_path(user)
+    assert_equal user.id, session[:user_id]
+  end
+
   test "should get index" do
     get users_index_url
     assert_response :success
