@@ -3,6 +3,10 @@ Rails.application.routes.draw do
 
   resources :users
 
+  delete "logout", to: "sessions#destroy", as: :logout
+  get "login", to: "sessions#new"
+  post "login", to: "sessions#create"
+
   get "scan", to: "scans#show"
   post "scan", to: "scans#show"
 
