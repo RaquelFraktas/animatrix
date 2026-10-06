@@ -14,6 +14,14 @@ class User < ApplicationRecord
 
   before_validation :set_defaults
 
+  def self.highscores
+    left_joins(:kills_as_killer)
+      .select("users.*, COUNT(kills.id) AS kills_count")
+      .group("users.id")
+      .order(Arel.sql("COUNT(kills.id) DESC, users.name ASC, users.id ASC"))
+      .limit(5)
+  end
+
   def self.find_or_initialize_by_qr_code(qr_code)
     normalized = qr_code.to_s.strip
     return new if normalized.blank?

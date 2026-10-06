@@ -1,0 +1,9 @@
+<li class="scoreboard-entry"
+    data-scoreboard-user-id="<%= user.id %>"
+    data-scoreboard-status="<%= user.status %>">
+  <%= link_to(user.name.presence || "Unnamed player", user) %>
+  <span>
+    <span data-scoreboard-kills="<%= user.kills_count %>"><%= user.kills_count %></span>
+    <span data-scoreboard-kill-label><%= "kill".pluralize(user.kills_count) %></span>
+  </span>
+</li>

@@ -1,0 +1,25 @@
+<div class="matrix-container">
+  <div class="matrix-rain" style="--x: 10%; --d: 5.1s; --t: 0s;">01019A</div>
+  <div class="matrix-rain" style="--x: 30%; --d: 3.5s; --t: -0.5s;">SYNTAX</div>
+  <div class="matrix-rain" style="--x: 50%; --d: 7.8s; --t: -1.2s;">MATRIX</div>
+  <div class="matrix-rain" style="--x: 70%; --d: 5.9s; --t: -0.3s;">420185</div>
+  <div class="matrix-rain" style="--x: 90%; --d: 4.4s; --t: -1.8s;">SYSTEM</div>
+
+
+  <div class="leaderboard">
+    <span>LEADER_BOARD</span>
+    <span>PLUGGED_IN_REMAINING: <%= User.where(status: "alive").count %></span>
+    <span>TOTAL_UNPLUGGED: <%= User.where(status: "killed").count %></span>
+  </div>
+
+  <div id="highscores" data-controller="scoreboard">
+    <%= turbo_stream_from "highscores" %>
+    <h1>High Scores</h1>
+
+    <div id="entries">
+      <%= render "entries", highscores: @highscores %>
+    </div>
+
+    <%= link_to "Back to players", users_path %>
+  </div>
+</div>

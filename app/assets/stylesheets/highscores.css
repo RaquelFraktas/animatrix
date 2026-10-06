@@ -1,0 +1,62 @@
+body {
+  background-color: #000;
+  margin: 0;
+  height: 100vh;
+  overflow: hidden;
+  color: #0ff416;
+}
+
+div.matrix-container {
+  position: absolute;
+  inset: 0;
+  font-family: monospace;
+  font-size: 24px;
+  height: 100vh;
+}
+
+.matrix-rain {
+  position: absolute;
+  left: var(--x);
+  color: #00ff41;
+  writing-mode: vertical-rl;
+  text-orientation: upright;
+  text-shadow: 0 0 8px #00ff41, 0 0 20px #00ff41;
+  animation: fall var(--d) linear var(--t) infinite;
+  z-index: 1;
+}
+
+.leaderboard {
+  position: relative;
+  z-index: 2;
+  display: grid;
+  gap: 0.5rem;
+  margin: 5% 20%;
+  padding: 20px;
+  border: 2px solid rgb(255 255 255 / 65%);
+  color: #fff;
+  text-align: center;
+  background: linear-gradient(
+    to bottom,
+    rgba(210, 32, 38, 0.686) 0%,
+    rgba(158, 22, 27, 0.631) 20%,
+    rgba(109, 14, 17, 0.527) 40%,
+    rgba(63, 6, 7, 0.295) 60%,
+    rgb(25 1 1 / 24%) 75%,
+    rgb(0 0 0 / 20%) 100%
+  );
+}
+
+.leaderboard span {
+  display: block;
+  margin: 0 10px;
+  opacity: 0.8;
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100%);
+  }
+  100% {
+    transform: translateY(100vh);
+  }
+}
