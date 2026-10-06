@@ -1,9 +1,0 @@
-<% if highscores.any? %>
-  <ol>
-    <% highscores.each do |user| %>
-      <%= render partial: "highscores/highscore", locals: { user: user } %>
-    <% end %>
-  </ol>
-<% else %>
-  <p>No players yet.</p>
-<% end %>

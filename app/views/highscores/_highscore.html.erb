@@ -1,9 +1,23 @@
-<li class="scoreboard-entry"
+<% kills_count = user.kills_count.to_i %>
+<% bar_percentage = max_kills.positive? ? (kills_count.to_f / max_kills * 100) : 0 %>
+
+<li class="highscore-list"
     data-scoreboard-user-id="<%= user.id %>"
     data-scoreboard-status="<%= user.status %>">
-  <%= link_to(user.name.presence || "Unnamed player", user) %>
-  <span>
-    <span data-scoreboard-kills="<%= user.kills_count %>"><%= user.kills_count %></span>
-    <span data-scoreboard-kill-label><%= "kill".pluralize(user.kills_count) %></span>
-  </span>
+  <div class="highscore-entry">
+    <div class="kill-chart"
+      role="progressbar"
+      aria-label="<%= user.name.presence || "Unnamed player" %> kills"
+      aria-valuemin="0"
+      aria-valuemax="<%= max_kills %>"
+      aria-valuenow="<%= kills_count %>">
+      <span class="kill-chart-fill" style="width: <%= bar_percentage %>%">
+        <div class="highscore-player">
+          <%= link_to(user.name.presence || "Unnamed player", user) %>
+          <span class="highscore-kill-count">
+          <span data-scoreboard-kills="<%= kills_count %>"><%= kills_count %></span>
+        </div>
+      </span>
+    </div>
+  </div>
 </li>

@@ -14,11 +14,7 @@
 
   <div id="highscores" data-controller="scoreboard">
     <%= turbo_stream_from "highscores" %>
-    <h1>High Scores</h1>
-
-    <div id="entries">
-      <%= render "entries", highscores: @highscores %>
-    </div>
+    <%= render "highscores", highscores: @highscores %>
 
     <%= link_to "Back to players", users_path %>
   </div>
