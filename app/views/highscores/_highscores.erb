@@ -1,9 +1,8 @@
 <div id="entries">
   <% if highscores.any? %>
-    <% max_kills = highscores.map { |score_user| score_user.kills_count.to_i }.max.to_i %>
     <ol class="highscores-list">
       <% highscores.each do |user| %>
-        <%= render partial: "highscores/highscore", locals: { user: user, max_kills: max_kills } %>
+        <%= render partial: "highscores/highscore", locals: { user: user, alive_player_count: alive_player_count } %>
       <% end %>
     </ol>
   <% else %>
