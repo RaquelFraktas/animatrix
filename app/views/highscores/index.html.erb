@@ -8,13 +8,12 @@
 
   <div class="leaderboard">
     <span>LEADER_BOARD</span>
-    <span>PLUGGED_IN_REMAINING: <%= User.where(status: "alive").count %></span>
-    <span>TOTAL_UNPLUGGED: <%= User.where(status: "killed").count %></span>
+    <%= render "stats" %>
   </div>
 
   <div id="highscores" data-controller="scoreboard">
     <%= turbo_stream_from "highscores" %>
-    <%= render "highscores", highscores: @highscores %>
+    <%= render "highscores", highscores: @highscores, alive_player_count: @alive_player_count %>
 
     <%= link_to "Back to players", users_path %>
   </div>
