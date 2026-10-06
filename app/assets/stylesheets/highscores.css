@@ -60,3 +60,60 @@ div.matrix-container {
     transform: translateY(100vh);
   }
 }
+
+.highscores-list, .highscores-list a {
+  justify-content: center;
+  margin: 0 20%;
+  color: #fff;
+  opacity: 0.8;
+  display: inline-block;
+}
+
+.highscore-entry {
+  display: grid;
+  grid-template-columns: minmax(9rem, 1fr) minmax(8rem, 2fr);
+  align-items: center;
+  gap: 1rem;
+  padding: 10px;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.highscore-player {
+  display: inline-flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.highscore-kill-count {
+  white-space: nowrap;
+}
+
+.kill-chart {
+  overflow: hidden;
+  border: 2px solid rgb(255 255 255 / 65%);
+  background: rgb(0 0 0 / 45%);
+  height: 2rem;
+}
+
+.kill-chart-fill {
+  display: block;
+  height: 100%;
+  background: linear-gradient(
+    to left,
+    rgba(210, 32, 38, 0.686) 0%,
+    rgba(158, 22, 27, 0.631) 20%,
+    rgba(109, 14, 17, 0.527) 40%,
+    rgba(63, 6, 7, 0.295) 60%,
+    rgb(25 1 1 / 24%) 75%,
+    rgb(0 0 0 / 20%) 100%
+  );
+  transition: width 500ms ease-out;
+}
+
+@media (max-width: 600px) {
+  .highscore-entry {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+}
