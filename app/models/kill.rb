@@ -9,8 +9,8 @@ class Kill < ApplicationRecord
   def broadcast_highscores
     Turbo::StreamsChannel.broadcast_replace_to(
       "highscores",
-      target: "highscore_entries",
-      partial: "highscores/entries",
+      target: "entries",
+      partial: "highscores/highscores",
       locals: { highscores: User.highscores }
     )
   end
