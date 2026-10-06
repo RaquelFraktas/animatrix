@@ -6,11 +6,6 @@ class ScansController < ApplicationController
 
     code = params[:qr_code].to_s.strip
 
-    if code.blank?
-      redirect_to scan_path, alert: "No QR code was provided."
-      return
-    end
-
     if @user.nil?
       redirect_to new_user_path(qr_code: code), notice: "That QR code is not attached to a player yet."
       return
