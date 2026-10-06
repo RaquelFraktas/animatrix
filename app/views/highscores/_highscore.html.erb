@@ -16,7 +16,6 @@
       <%= link_to(user.name.presence || "Unnamed player", user) %>
       <span class="highscore-kill-count">
         <span data-scoreboard-kills="<%= kills_count %>"><%= kills_count %></span>
-        <span data-scoreboard-kill-label><%= "kill".pluralize(kills_count) %></span>
       </span>
     </div>
   </div>
