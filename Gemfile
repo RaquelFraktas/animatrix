@@ -12,7 +12,7 @@ gem "turbo-rails"
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
 gem "stimulus-rails"
 gem "jbuilder"
-gem "json", "~> 2.7.2"
+gem "json", "~> 3.0.2"
 gem "rqrcode"
 gem "redis", "~> 5.4"
 # gem "mini_magick"
