@@ -1,18 +1,13 @@
 <div class="matrix-container">
-  <div class="matrix-rain" style="--x: 10%; --d: 5.1s; --t: 0s;">01019A</div>
-  <div class="matrix-rain" style="--x: 30%; --d: 3.5s; --t: -0.5s;">SYNTAX</div>
-  <div class="matrix-rain" style="--x: 50%; --d: 7.8s; --t: -1.2s;">MATRIX</div>
-  <div class="matrix-rain" style="--x: 70%; --d: 5.9s; --t: -0.3s;">420185</div>
-  <div class="matrix-rain" style="--x: 90%; --d: 4.4s; --t: -1.8s;">SYSTEM</div>
-
-
-  <div class="leaderboard">
-    <span>LEADER_BOARD</span>
-    <%= render "stats" %>
-  </div>
-
-  <div id="highscores" data-controller="scoreboard">
-    <%= turbo_stream_from "highscores" %>
-    <%= render "highscores", highscores: @highscores, alive_player_count: @alive_player_count %>
+  <canvas id="matrix-rain"></canvas>
+  <div class="matrix-content">
+    <div class="leaderboard">
+      <span>LEADER_BOARD</span>
+      <%= render "stats" %>
+    </div>
+    <div id="highscores" data-controller="scoreboard">
+      <%= turbo_stream_from "highscores" %>
+      <%= render "highscores", highscores: @highscores, alive_player_count: @alive_player_count %>
+    </div>
   </div>
 </div>
