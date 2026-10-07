@@ -13,16 +13,23 @@
  *= require_tree .
  *= require_self
  */
-
- body {
-  height: 100%;
- }
+body {
+  margin: 0;
+  height: 100vh;
+  background-color: #000;
+  padding: 2rem;
+}
 
  body, a {
-  background-color: 000;
-  color: #00ff41;
+  height: 100%;
+  font-size: 1rem;
+  color: #0ff416;
   font-family: monospace;
   text-transform: uppercase;
+ }
+
+ ul {
+  padding-left: 2rem;
  }
 
  li {
@@ -36,12 +43,28 @@
 
  button, input[type="submit"] {
     position: relative;
-    padding: 1.5rem 3rem;
-    font-size: 1.1rem;
+    padding: 1.5rem 2rem;
+    font-size: 1rem;
     font-weight: 600;
     cursor: pointer;
     overflow: hidden;
     transition: all 0.4s ease;
+    font-family: monospace;
+    text-transform: uppercase;
+ }
+
+ input[type="text"] {
+  background: #000;
+  border: 2px solid #0f0;
+  color: #0f0;
+  padding: 1.5rem 2rem;
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 1rem;
+ }
+
+ .qr-code {
+  padding-bottom: 2rem;
  }
  
  .btn {
