@@ -1,0 +1,43 @@
+<h1>Manual Player Update</h1>
+
+<% if @users.empty? %>
+  <p>No players exist yet.</p>
+<% else %>
+  <%= form_with url: manual_input_path, method: :get do |form| %>
+    <div>
+      <%= form.label :user_id, "Player" %>
+      <%= form.collection_select :user_id, @users, :id, :name,
+                                 { selected: @user&.id, include_blank: "Choose a player" },
+                                 { required: true } %>
+      <%= form.submit "Load player" %>
+    </div>
+  <% end %>
+
+  <% if @user %>
+    <%= form_with url: manual_input_update_path, method: :patch do |form| %>
+      <%= form.hidden_field :user_id, value: @user.id %>
+
+      <div>
+        <%= form.label :status, "Status" %>
+        <%= form.select :status, User::VALID_STATUSES.map { |status| [status.titleize, status] },
+                        selected: @user.status %>
+      </div>
+
+      <div>
+        <%= form.label :killer_id, "Killed by" %>
+        <%= form.collection_select :killer_id, @users.reject { |user| user.id == @user.id }, :id, :name,
+                                   { include_blank: "No killer recorded", selected: @user.kill_record&.killer_id } %>
+      </div>
+
+      <div>
+        <%= form.label :killed_user_ids, "Players this user killed" %>
+        <%= form.collection_select :killed_user_ids,
+                                   @users.reject { |user| user.id == @user.id }, :id, :name,
+                                   { selected: @user.kills_as_killer.pluck(:victim_id) },
+                                   { multiple: true, size: 8 } %>
+      </div>
+
+      <%= form.submit "Save manual update" %>
+    <% end %>
+  <% end %>
+<% end %>
