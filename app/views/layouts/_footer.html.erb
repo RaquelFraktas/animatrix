@@ -1,4 +1,4 @@
-<div class="footer" style="margin: 5rem; text-align: center;">
+<footer>
   <% unless controller.controller_name == "highscores" %>
     <hr>
     <% if current_user %>
@@ -13,4 +13,4 @@
   <% end %>
   <br>
   <%= link_to "Back to players", users_path %>
-</div>
+</footer>

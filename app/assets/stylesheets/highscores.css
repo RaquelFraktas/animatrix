@@ -5,11 +5,15 @@ body {
   color: #0ff416;
 }
 
-div.matrix-container {
+.matrix-container > footer {
   position: absolute;
   inset: 0;
-  font-size: 24px;
+  /* font-size: 24px; */
   height: 100vh;
+}
+
+.matrix-container {
+  font-size: 24px;
 }
 
 .matrix-rain {
