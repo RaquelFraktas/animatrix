@@ -16,7 +16,13 @@
 
  body, a {
   background-color: 000;
-  color: 00ff41;
+  color: #00ff41;
+  font-family: monospace;
+  text-transform: uppercase;
+ }
+
+ li {
+  list-style-type: none;
  }
 
 @keyframes scan-killed-shake {

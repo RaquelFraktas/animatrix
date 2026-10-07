@@ -2,14 +2,12 @@ body {
   background-color: #000;
   margin: 0;
   height: 100vh;
-  overflow: hidden;
   color: #0ff416;
 }
 
 div.matrix-container {
   position: absolute;
   inset: 0;
-  font-family: monospace;
   font-size: 24px;
   height: 100vh;
 }
@@ -61,44 +59,57 @@ div.matrix-container {
   }
 }
 
-.highscores-list, .highscores-list a {
-  justify-content: center;
-  margin: 0 20%;
+.highscores-list {
+  box-sizing: border-box;
+  width: min(100%, 48rem);
+  margin: 1rem auto;
+  padding: 0 0 0 2rem;
   color: #fff;
-  opacity: 0.8;
-  display: inline-block;
 }
 
 .highscore-entry {
-  display: grid;
-  grid-template-columns: minmax(9rem, 1fr) minmax(8rem, 2fr);
-  align-items: center;
-  gap: 1rem;
+  box-sizing: border-box;
+  display: block;
+  width: 100%;
   padding: 10px;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+  transition: transform 650ms cubic-bezier(0.2, 0.8, 0.2, 1);
 }
 
 .highscore-player {
-  display: inline-flex;
+  display: flex;
+  width: 100%;
+  box-sizing: border-box;
   justify-content: space-between;
   align-items: center;
+  min-width: 0;
   gap: 0.75rem;
 }
 
-.highscore-kill-count {
+.highscore-player a {
+  display: block;
+  flex: 1 1 auto;
+  min-width: 0;
+  overflow: hidden;
+  color: #fff;
+  text-overflow: ellipsis;
   white-space: nowrap;
 }
 
-.kill-chart {
-  overflow: hidden;
-  border: 2px solid rgb(255 255 255 / 65%);
-  background: rgb(0 0 0 / 45%);
-  height: 2rem;
+.highscore-kill-count {
+  flex: 0 0 auto;
+  margin-left: auto;
 }
 
-.kill-chart-fill {
-  display: block;
-  height: 100%;
+.kill-chart {
+  box-sizing: border-box;
+  width: 0;
+  min-width: 0;
+  max-width: 100%;
+  min-height: 2.5rem;
+  display: flex;
+  overflow: hidden;
+  padding: 0.4rem 0.75rem;
+  border: 2px solid rgb(255 255 255 / 65%);
   background: linear-gradient(
     to left,
     rgba(210, 32, 38, 0.686) 0%,
@@ -112,8 +123,7 @@ div.matrix-container {
 }
 
 @media (max-width: 600px) {
-  .highscore-entry {
-    grid-template-columns: 1fr;
-    gap: 0.5rem;
+  .highscore-player {
+    flex-wrap: wrap;
   }
 }
