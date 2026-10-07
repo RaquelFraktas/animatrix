@@ -14,7 +14,7 @@ gem "stimulus-rails"
 gem "jbuilder"
 gem "json", "~> 2.7.2"
 gem "rqrcode"
-gem "redis", "~> 5.4"
+gem "redis", "~> 6.0"
 # gem "mini_magick"
 
 # Windows does not include zoneinfo files, so bundle the tzinfo-data gem
