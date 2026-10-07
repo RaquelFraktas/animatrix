@@ -4,5 +4,3 @@
   <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}" %>
   <%= render "result_frame", user: @user, redirect_after_kill: false %>
 </div>
-
-<%= link_to "Back to players", users_path %>
