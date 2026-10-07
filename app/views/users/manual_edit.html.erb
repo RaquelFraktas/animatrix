@@ -29,14 +29,6 @@
                                    { include_blank: "No killer recorded", selected: @user.kill_record&.killer_id } %>
       </div>
 
-      <div>
-        <%= form.label :killed_user_ids, "Players this user killed" %>
-        <%= form.collection_select :killed_user_ids,
-                                   @users.reject { |user| user.id == @user.id }, :id, :name,
-                                   { selected: @user.kills_as_killer.pluck(:victim_id) },
-                                   { multiple: true, size: 8 } %>
-      </div>
-
       <%= form.submit "Save manual update" %>
     <% end %>
   <% end %>
