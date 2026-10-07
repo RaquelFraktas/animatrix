@@ -2,7 +2,7 @@
   <% unless controller.controller_name == "highscores" %>
     <hr>
     <% if current_user %>
-      <h2>Signed in as <%= link_to(current_user&.name, current_user)  %></h2>
+      <h2>Signed in as <%= link_to(current_user&.name, current_user) %></h2>
       <%= button_to logout_path, method: :delete, class: "matrix btn" do %>
         Sign out
         <div class="code-rain"></div>
