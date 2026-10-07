@@ -59,6 +59,9 @@ class ScansController < ApplicationController
     end
   end
 
+  def opt_out
+  end
+
 
   private
 

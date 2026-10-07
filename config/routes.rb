@@ -9,6 +9,7 @@ Rails.application.routes.draw do
 
   get "scan", to: "scans#show"
   post "scan", to: "scans#show"
+  get "opt_out", to: "scans#opt_out"
 
   get "highscores", to: "highscores#index"
 

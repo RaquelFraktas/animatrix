@@ -1,0 +1,19 @@
+<dialog class="game-play-dialog"
+	data-controller="game-play-modal"
+	aria-labelledby="game-play-title">
+  <button class="game-play-close"
+	  type="button"
+	  aria-label="Close game information"
+	  data-action="game-play-modal#close">×</button>
+
+  <h1 id="game-play-title">WELCOME TO DOWN THE RABBIT HOLE</h1>
+
+  <p>THIS IS AN INTERACTIVE GAME THAT INVOLVES BEING TAGGED ON THE BACK (ABOVE THE WAIST ONLY)</p>
+
+  <p>TO OPT OUT OF THE GAME, PLEASE CLICK <%= link_to "HERE", opt_out_path %></p>
+
+  <p>ANY INAPPROPRIATE BEHAVIOR/HARASSMENT WILL GET YOU KICKED OUT IMMEDIATELY</p>
+
+  <p>READY?</p>
+  <p>PLUG INTO THE MATRIX <%= link_to "HERE", "#", data: { action: "game-play-modal#close" } %></p>
+</dialog>

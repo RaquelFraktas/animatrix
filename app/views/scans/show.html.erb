@@ -1,4 +1,11 @@
-<h1>scan/show page</h1>
+<%= render "game_play" %>
+
+<h1>Plug into the Matrix to begin play</h1>
+<p>
+  <span style="color: white;">GLOWSTICK NECKLACES</span> INDICATE PLAYER <span style="color: white;">STATUS</span>
+  <br>
+  PLAYERS WITH A NECKLACE <span style="color: red;">MAY NOT BE TOUCHED</span>
+</p>
 
 <div>
   <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}", class: "qr-code" %>
