@@ -1,7 +1,7 @@
 <% kills_count = user.kills_count.to_i %>
 <% bar_percentage = alive_player_count.positive? ? [kills_count.to_f / alive_player_count * 100, 100].min : 0 %>
 
-<li class="highscore-entry scoreboard-entry"
+<li class="highscore-entry"
     data-scoreboard-user-id="<%= user.id %>"
     data-scoreboard-status="<%= user.status %>">
   <div class="kill-chart"
