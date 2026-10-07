@@ -79,8 +79,8 @@ if (canvas) {
 
     for (let column = 0; column < columnCount; column++) {
 
-      // Use about 70% of available columns
-      if (Math.random() > 0.3) {
+      // Use about 90% of available columns
+      if (Math.random() > 0.1) {
         streams.push(
           createStream(column)
         );
@@ -209,7 +209,7 @@ if (canvas) {
       );
 
     stream.length =
-      Math.floor(random(6, 18));
+      Math.floor(random(10, 35));
 
     stream.speed =
       random(1.5, 3.5);
