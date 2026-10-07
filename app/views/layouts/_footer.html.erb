@@ -1,13 +1,16 @@
-<% unless controller.controller_name == "highscores" %>
-  <% if current_user %>
-    <h2>Signed in as <%= link_to(current_user&.name, current_user)  %></h2>
-    <%= button_to logout_path, method: :delete, class: "matrix btn" do %>
-      Sign out
-      <div class="code-rain"></div>
+<div class="footer" style="margin: 5rem; text-align: center;">
+  <% unless controller.controller_name == "highscores" %>
+    <hr>
+    <% if current_user %>
+      <h2>Signed in as <%= link_to(current_user&.name, current_user)  %></h2>
+      <%= button_to logout_path, method: :delete, class: "matrix btn" do %>
+        Sign out
+        <div class="code-rain"></div>
+      <% end %>
+    <% else %>
+      <%= link_to "Sign in", login_path unless controller.controller_name == "sessions" %>
     <% end %>
-  <% else %>
-    <%= link_to "Sign in", login_path unless controller.controller_name == "sessions" %>
   <% end %>
-<% end %>
-
-<%= link_to "Back to players", users_path %>
+  <br>
+  <%= link_to "Back to players", users_path %>
+</div>
