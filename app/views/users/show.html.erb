@@ -4,13 +4,13 @@
 <p>QR code value: <%= @user.qr_code %></p>
 
 <% if @user.qr_code.present? %>
-  <div><%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}" %></div>
+  <div><%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}", class: "qr-code" %></div>
 <% end %>
 <% if @user.name.blank?%>
   <%= form_with model: @user do |form| %>
 		<%= form.label :name, "Name" %>
 		<%= form.text_field :name, required: true, autofocus: true %>
-	  <%= form.submit "Save name" %>
+	  <%= form.submit "Save name", class: "btn matrix" %>
   <% end %>
 
 <% end %>

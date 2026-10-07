@@ -1,6 +1,6 @@
 <h1>scan/show page</h1>
 
 <div>
-  <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}" %>
+  <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}", class: "qr-code" %>
   <%= render "result_frame", user: @user, redirect_after_kill: false %>
 </div>

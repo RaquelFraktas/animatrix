@@ -4,6 +4,6 @@
 
 <%= form_with model: @user do |form| %>
   <%= form.hidden_field :qr_code, value: @user.qr_code %>
-  <%= form.submit "Generate QR code" %>
+  <%= form.submit "Generate QR code", class: "btn matrix" %>
 <% end %>
 
