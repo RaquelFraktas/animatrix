@@ -1,0 +1,80 @@
+.game-play-dialog {
+  position: relative;
+  width: min(38rem, calc(100vw - 2rem));
+  max-height: calc(100vh - 2rem);
+  overflow: auto;
+  box-sizing: border-box;
+  padding: 2.5rem 2rem 2rem;
+  border: 2px solid #00ff41;
+  color: #00ff41;
+  background: rgb(0 0 0 / 94%);
+  font-family: monospace;
+  text-align: center;
+}
+
+.game-play-dialog::backdrop {
+  background: rgb(0 0 0 / 78%);
+}
+
+.game-play-dialog h1 {
+  margin-top: 0;
+  padding-right: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.game-play-dialog p {
+  margin: 1.25rem 0;
+  line-height: 1.6;
+}
+
+.game-play-dialog a {
+  color: #fff;
+  text-decoration: underline;
+  text-underline-offset: 0.2em;
+}
+
+.game-play-close {
+  position: absolute;
+  top: 0.4rem;
+  right: 0.4rem;
+  padding: 0.25rem 0.65rem;
+  border: 1px solid #00ff41;
+  color: #00ff41;
+  background: #000;
+  font: inherit;
+  font-size: 1.5rem;
+  line-height: 1;
+}
+
+@media (max-width: 600px) {
+  .game-play-dialog {
+    padding: 2.5rem 1.25rem 1.25rem;
+  }
+}
+
+.opt-out-instructions {
+  font-weight: bold;
+  text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
+  
+  /* Typing Logic */
+  white-space: nowrap;
+  overflow: hidden;
+  border-right: 3px solid #00FF41; /* The Cursor */
+  
+  /* Steps should match the exact number of characters (15 including spaces) */
+  animation: 
+    typing 7.5s steps(60) infinite alternate,
+    blink 0.75s step-end infinite;
+}
+
+/* Character reveal */
+@keyframes typing {
+  from { width: 0; }
+  to { width: 100%; }
+}
+
+/* Cursor blinking */
+@keyframes blink {
+  from, to { border-color: transparent; }
+  50% { border-color: #00FF41; }
+}
