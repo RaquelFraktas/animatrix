@@ -22,5 +22,7 @@ class Kill < ApplicationRecord
       target: "leaderboard_stats",
       partial: "highscores/stats"
     )
+  rescue Redis::BaseError => error
+    Rails.logger.error("High-score broadcast failed after kill #{id}: #{error.class}: #{error.message}")
   end
 end
