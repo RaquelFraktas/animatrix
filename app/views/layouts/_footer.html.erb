@@ -1,5 +1,7 @@
 <footer>
-  <% unless controller.controller_name == "highscores" %>
+  <% if controller.controller_name == "highscores" %>
+    <%= link_to "Back to all players", users_path %>
+  <% else %>
     <hr>
     <% if current_user %>
       <h2>Signed in as <%= link_to(current_user&.name, current_user) %></h2>
@@ -10,7 +12,7 @@
     <% else %>
       <%= link_to "Sign in", login_path unless controller.controller_name == "sessions" %>
     <% end %>
+    <br>
+    <%= link_to "Back to players", users_path %>
   <% end %>
-  <br>
-  <%= link_to "Back to players", users_path %>
 </footer>
