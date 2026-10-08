@@ -13,7 +13,6 @@ class UsersController < ApplicationController
     @user = User.new(qr_code: params[:qr_code])
   end
 
-
   def create
     @user = User.new(
       user_params.merge(
@@ -60,38 +59,35 @@ class UsersController < ApplicationController
   def manual_update
     @user = User.find(params[:user_id])
     attributes = manual_input_params
-    victim_ids = Array(attributes[:killed_user_ids]).reject(&:blank?).map(&:to_i).uniq
+    status = attributes[:status]
     killer_id = attributes[:killer_id].presence&.to_i
-    related_ids = victim_ids + [killer_id].compact
 
-    unless User::VALID_STATUSES.include?(attributes[:status]) &&
-           !related_ids.include?(@user.id) &&
-           User.where(id: related_ids).count == related_ids.uniq.count
-      return redirect_to manual_input_path(user_id: @user.id), alert: "Choose a valid status and other existing players."
+    unless User::VALID_STATUSES.include?(status)
+      return redirect_to manual_input_path(user_id: @user.id), alert: "Choose a valid player status."
+    end
+
+    if status == "killed"
+      killer = User.find_by(id: killer_id)
+      unless killer && killer != @user
+        return redirect_to manual_input_path(user_id: @user.id), alert: "Choose another player as the killer."
+      end
     end
 
     User.transaction do
-      @user.update!(status: attributes[:status])
+      @user.status = status
+      @user.save!(validate: false)
 
-      @user.kills_as_killer.where.not(victim_id: victim_ids).destroy_all
-      victim_ids.each do |victim_id|
-        kill = Kill.find_or_initialize_by(victim_id: victim_id)
-        kill.update!(killer_id: @user.id) unless kill.killer_id == @user.id
-      end
-
-      current_kill = @user.kill_record
-      if killer_id
-        if current_kill
-          current_kill.update!(killer_id: killer_id) unless current_kill.killer_id == killer_id
-        else
-          Kill.create!(killer_id: killer_id, victim_id: @user.id)
+      if status == "killed"
+        Kill.where(victim_id: @user.id).where.not(killer_id: killer_id).destroy_all
+        Kill.find_or_create_by!(victim_id: @user.id) do |kill|
+          kill.killer_id = killer_id
         end
       else
-        current_kill&.destroy!
+        Kill.where(victim_id: @user.id).destroy_all
       end
     end
 
-    redirect_to manual_input_path(user_id: @user.id), notice: "Player status and kill history updated."
+    redirect_to manual_input_path(user_id: @user.id), notice: "Player status updated."
   rescue ActiveRecord::RecordInvalid => error
     @users = User.order(:name, :id)
     flash.now[:alert] = error.record.errors.full_messages.to_sentence
@@ -109,6 +105,6 @@ class UsersController < ApplicationController
   end
 
   def manual_input_params
-    params.permit(:user_id, :status, :killer_id, killed_user_ids: [])
+    params.permit(:user_id, :status, :killer_id)
   end
 end
