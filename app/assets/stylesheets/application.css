@@ -28,6 +28,10 @@ body, a {
  text-transform: uppercase;
 }
 
+a {
+  font-size: inherit;
+}
+
 form {
   display: flex;
   justify-content: center;
