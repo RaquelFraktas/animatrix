@@ -18,25 +18,26 @@ body {
   height: 100vh;
   background-color: #000;
   padding: 2rem;
+  color: #0ff416;
 }
 
 body, a {
  height: 100%;
  font-size: 1rem;
- color: #0ff416;
  font-family: monospace;
  text-transform: uppercase;
 }
 
 a {
   font-size: inherit;
+  color: inherit;
 }
 
 form {
   display: flex;
   justify-content: center;
   flex-direction: column;
-  gap: 15px;
+  gap: 25px;
 }
 
 ul {

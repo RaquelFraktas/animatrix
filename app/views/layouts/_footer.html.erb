@@ -11,6 +11,7 @@
       <% end %>
     <% else %>
       <%= link_to "Sign in", login_path unless controller.controller_name == "sessions" %>
+      <br>
     <% end %>
     <br>
     <%= link_to "Back to players", users_path %>

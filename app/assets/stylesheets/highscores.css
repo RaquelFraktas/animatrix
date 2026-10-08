@@ -97,6 +97,7 @@
   align-items: center;
   min-width: 0;
   gap: 0.75rem;
+  opacity: 0.8;
 }
 
 .highscore-player a {
@@ -139,6 +140,7 @@
 @media (max-width: 600px) {
   .matrix-container {
     min-height: calc(100svh - 2rem);
+    /* font-size: 0.875rem !important; */
   }
 
   .leaderboard {
