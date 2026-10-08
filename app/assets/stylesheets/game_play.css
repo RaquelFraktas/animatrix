@@ -51,30 +51,3 @@
     padding: 2.5rem 1.25rem 1.25rem;
   }
 }
-
-.opt-out-instructions {
-  font-weight: bold;
-  text-shadow: 0 0 8px rgba(0, 255, 65, 0.7);
-  
-  /* Typing Logic */
-  white-space: nowrap;
-  overflow: hidden;
-  border-right: 3px solid #00FF41; /* The Cursor */
-  
-  /* Steps should match the exact number of characters (15 including spaces) */
-  animation: 
-    typing 7.5s steps(60) infinite alternate,
-    blink 0.75s step-end infinite;
-}
-
-/* Character reveal */
-@keyframes typing {
-  from { width: 0; }
-  to { width: 100%; }
-}
-
-/* Cursor blinking */
-@keyframes blink {
-  from, to { border-color: transparent; }
-  50% { border-color: #00FF41; }
-}
