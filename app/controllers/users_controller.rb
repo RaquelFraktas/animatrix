@@ -87,7 +87,7 @@ class UsersController < ApplicationController
       end
     end
 
-    redirect_to manual_input_path(user_id: @user.id), notice: "Player status updated."
+    redirect_to users_path, notice: "Player status updated."
   rescue ActiveRecord::RecordInvalid => error
     @users = User.order(:name, :id)
     flash.now[:alert] = error.record.errors.full_messages.to_sentence
