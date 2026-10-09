@@ -136,3 +136,10 @@ body.scan-killed-shake {
 		animation: none;
 	}
 }
+
+.disclaimer {
+  font-size: 0.8rem;
+  color: #fff;
+  text-align: center;
+  margin-top: 2rem;
+}
