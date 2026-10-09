@@ -6,7 +6,7 @@
     <% if current_user %>
       <span style="font-size: .9rem;">Signed in as</span> <%= link_to(current_user&.name, current_user) %></span>
       <br><br>
-      <%= button_to logout_path, method: :delete, class: "matrix btn" do %>
+      <%= button_to logout_path, method: :delete, class: "matrix btn logout-button" do %>
         Sign out
         <div class="code-rain"></div>
       <% end %>
@@ -16,7 +16,7 @@
     <% end %>
     <br>
     <%= link_to "Back to players", users_path %>
-    <%= link_to "Back to FAQ", root_path %>
+    <%= link_to "FAQ", root_path %>
   <% end %>
 
   <p class="disclaimer">

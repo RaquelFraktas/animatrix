@@ -36,7 +36,6 @@ a {
 form {
   display: flex;
   justify-content: center;
-  flex-direction: column;
   gap: 25px;
 }
 
@@ -142,4 +141,13 @@ body.scan-killed-shake {
   color: #fff;
   text-align: center;
   margin-top: 2rem;
+}
+
+button.logout-button {
+  justify-content: center;
+  font-size: 0.6rem;
+  padding: 10px;
+  position: fixed;
+  bottom: 0;
+  right: 0;
 }
