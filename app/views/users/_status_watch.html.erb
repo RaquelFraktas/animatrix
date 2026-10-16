@@ -1,0 +1,4 @@
+<% if current_user == user %>
+  <%= turbo_stream_from user, :status %>
+  <div id="<%= dom_id(user, :status_shake) %>"></div>
+<% end %>

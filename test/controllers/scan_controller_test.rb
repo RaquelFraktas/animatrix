@@ -1,6 +1,9 @@
 require "test_helper"
+require "turbo/broadcastable/test_helper"
 
 class ScanControllerTest < ActionDispatch::IntegrationTest
+  include Turbo::Broadcastable::TestHelper
+
   test "saving an unnamed player shows the new name in the scan result" do
     user = User.create!(qr_code: "scan-name-test")
 
@@ -61,6 +64,28 @@ class ScanControllerTest < ActionDispatch::IntegrationTest
 
     assert_response :success
     assert_not_includes response.body, "ACCESS DENIED"
+  end
+
+  test "a player's own scan page listens for their status changing" do
+    user = User.create!(qr_code: "scan-own-page")
+
+    post scan_path, params: { qr_code: user.qr_code, target_name: "Watcher" }
+    get scan_path(qr_code: user.qr_code)
+
+    assert_includes response.body, "<turbo-cable-stream-source"
+    assert_includes response.body, %(id="status_shake_user_#{user.id}")
+  end
+
+  test "killing a player tells the victim's pages to shake" do
+    killer = User.create!(name: "Shaker", qr_code: "scan-shake-killer")
+    victim = User.create!(name: "Shaken", qr_code: "scan-shake-victim")
+
+    streams = capture_turbo_stream_broadcasts([ victim, :status ]) { killer.kill!(victim) }
+
+    assert_equal 1, streams.size
+    assert_equal "update", streams.first["action"]
+    assert_includes streams.first.to_html, 'data-controller="page-shake"'
+    assert_includes streams.first.to_html, 'data-page-shake-reload-value="true"'
   end
 
   test "successful kill replaces the scan result with the dead state" do

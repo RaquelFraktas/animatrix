@@ -3,8 +3,19 @@ class Kill < ApplicationRecord
   belongs_to :victim, class_name: "User"
 
   after_commit :broadcast_highscores, on: %i[create update destroy]
+  after_commit :broadcast_victim_shake, on: :create
 
   private
+
+  def broadcast_victim_shake
+    Turbo::StreamsChannel.broadcast_update_to(
+      [ victim, :status ],
+      target: ActionView::RecordIdentifier.dom_id(victim, :status_shake),
+      html: '<div data-controller="page-shake" data-page-shake-count-value="3" data-page-shake-reload-value="true"></div>'
+    )
+  rescue Redis::BaseError => error
+    Rails.logger.error("Victim shake broadcast failed after kill #{id}: #{error.class}: #{error.message}")
+  end
 
   def broadcast_highscores
     Turbo::StreamsChannel.broadcast_replace_to(
