@@ -1,0 +1,12 @@
+<dialog class="game-play-dialog"
+	data-controller="game-play-modal"
+	aria-labelledby="scan-error-title">
+  <button class="game-play-close"
+	  type="button"
+	  aria-label="Close error"
+	  data-action="game-play-modal#close">×</button>
+
+  <h1 id="scan-error-title" style="color: red;">ACCESS DENIED</h1>
+
+  <p><%= message %></p>
+</dialog>

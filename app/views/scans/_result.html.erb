@@ -15,7 +15,8 @@
   <h2><%= user.name %> is <span style="color: red; font-style: italic">dead</span></h2>
 <% elsif current_user == user %>
   <h2>Player name: <%= user.name %></h2>
-<% elsif user.alive? && current_user != user %>
+  GO FREE SOME MINDS.
+<% elsif user.alive? && current_user != user && local_assigns[:scan_error].nil? %>
   <div>
     <%= form_with url: scan_path, method: :post do |form| %>
       <%= form.hidden_field :qr_code, value: user.qr_code %>

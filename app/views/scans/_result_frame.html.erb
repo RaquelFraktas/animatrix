@@ -5,5 +5,6 @@
                       page_shake_redirect_url_value: users_path,
                       page_shake_redirect_delay_value: 15_000
                     } : {}) do %>
-  <%= render "result", user: user %>
+  <%= render "scan_error", message: local_assigns[:scan_error] if local_assigns[:scan_error] %>
+  <%= render "result", user: user, scan_error: local_assigns[:scan_error] %>
 <% end %>

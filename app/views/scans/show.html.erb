@@ -9,5 +9,5 @@
 
 <div>
   <%= image_tag @user.qr_code_png_data_uri, alt: "QR code for #{@user.qr_code}", class: "qr-code" %>
-  <%= render "result_frame", user: @user, redirect_after_kill: false %>
+  <%= render "result_frame", user: @user, redirect_after_kill: false, scan_error: @scan_error %>
 </div>

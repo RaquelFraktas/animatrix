@@ -2,6 +2,7 @@ class ScansController < ApplicationController
   before_action :set_user_by_qr_code, only: %i[show]
 
   def show
+    @scan_error = scan_error_message
     return unless request.post?
 
     code = params[:qr_code].to_s.strip
@@ -80,5 +81,15 @@ class ScansController < ApplicationController
 
   def set_user_by_qr_code
     @user = User.find_by(qr_code: params[:qr_code])
+  end
+
+  def scan_error_message
+    return if @user.nil? || @user.name.blank? || current_user.nil? || current_user == @user
+
+    if current_user.killed?
+      "You are dead. You can't free any more minds."
+    elsif @user.killed?
+      "#{@user.name} is already dead."
+    end
   end
 end
