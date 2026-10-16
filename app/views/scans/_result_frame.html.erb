@@ -1,8 +1,9 @@
 <%= turbo_frame_tag "scan_result",
                     data: (redirect_after_kill ? {
-                      controller: "scan-result",
-                      scan_result_scoreboard_url_value: users_path,
-                      scan_result_redirect_delay_value: 15_000
+                      controller: "page-shake",
+                      page_shake_count_value: 3,
+                      page_shake_redirect_url_value: users_path,
+                      page_shake_redirect_delay_value: 15_000
                     } : {}) do %>
   <%= render "result", user: user %>
 <% end %>

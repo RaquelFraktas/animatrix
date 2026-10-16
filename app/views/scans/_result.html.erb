@@ -12,7 +12,7 @@
     <% end %>
   </div>
 <% elsif user.killed? %>
-  <h2><%= user.name %> is dead.</h2>
+  <h2><%= user.name %> is <span style="color: red;">dead.</span></h2>
 <% elsif current_user == user %>
   <h2>Player name: <%= user.name %></h2>
 <% elsif user.alive? && current_user != user %>

@@ -16,6 +16,7 @@ class ScansController < ApplicationController
 
       if name.present?
         unless @user.update(name: name)
+          @user.restore_attributes([:name])
           render :show, status: :unprocessable_entity
           return
         end

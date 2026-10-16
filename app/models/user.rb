@@ -9,7 +9,7 @@ class User < ApplicationRecord
 
   VALID_STATUSES = %w[alive killed].freeze
 
-  validates :name, uniqueness: true, allow_nil: true
+  validates :name, uniqueness: { case_sensitive: false }, allow_nil: true
   validates :qr_code, uniqueness: true, allow_blank: true
 
   before_validation :set_defaults
