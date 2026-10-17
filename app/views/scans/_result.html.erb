@@ -4,7 +4,7 @@
     <% user.errors.full_messages_for(:name).each do |message| %>
       <p style="color: red;" data-controller="page-shake"><%= message %></p>
     <% end %>
-    <%= form_with url: scan_path, method: :post do |form| %>
+    <%= form_with url: scan_path, method: :post, class: "save-name-form" do |form| %>
       <%= form.hidden_field :qr_code, value: user.qr_code %>
       <%= form.label :target_name, "Player name" %>
       <%= form.text_field :target_name, required: true, autofocus: true %>

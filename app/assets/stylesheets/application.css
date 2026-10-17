@@ -157,7 +157,8 @@ button.logout-button {
 }
 
 @media (max-width: 600px) {
-  form.login-form {
+  form.login-form,
+  form.save-name-form {
     flex-direction: column;
     align-items: stretch;
   }
