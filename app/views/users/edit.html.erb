@@ -3,7 +3,7 @@
 <%= form_with model: @user, class: "save-name-form" do |form| %>
 	<div>
 		<%= form.label :name, "Name" %>
-		<%= form.text_field :name, required: true, autofocus: true %>
+		<%= form.text_field :name, required: true, autofocus: true, placeholder: 'name@domain.com' %>
 	</div>
 
 	<%= form.submit "Save name", class: "btn matrix" %>
