@@ -9,8 +9,7 @@
 <% end %>
 <% if @user.name.blank?%>
   <%= form_with model: @user, class: "save-name-form" do |form| %>
-		<%= form.label :name, "Name" %>
-		<%= form.text_field :name, required: true, autofocus: true %>
+		<%= form.text_field :name, required: true, autofocus: true, placeholder: 'USERNAME' %>
 	  <%= form.submit "Save name", class: "btn matrix" %>
   <% end %>
 

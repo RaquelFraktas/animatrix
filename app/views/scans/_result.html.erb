@@ -6,8 +6,7 @@
     <% end %>
     <%= form_with url: scan_path, method: :post, class: "save-name-form" do |form| %>
       <%= form.hidden_field :qr_code, value: user.qr_code %>
-      <%= form.label :target_name, "Player name" %>
-      <%= form.text_field :target_name, required: true, autofocus: true %>
+      <%= form.text_field :target_name, required: true, autofocus: true, placeholder: 'USERNAME' %>
       <%= form.submit "Save name", class: "btn matrix" %>
     <% end %>
   </div>
