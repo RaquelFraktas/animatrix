@@ -1,5 +1,4 @@
-<%= form_with url: login_path, method: :post do |form| %>
-  <%= form.label :name, "Name" %>
+<%= form_with url: login_path, method: :post, class: "login-form" do |form| %>
   <%= form.collection_select :id, User.where.not(name: nil), :id, :name, { prompt: "Select a player" } %>
   <%= form.submit "Sign in", class: "matrix btn" %>
 <% end %>

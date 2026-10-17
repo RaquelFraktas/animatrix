@@ -63,6 +63,9 @@ button, input[type="submit"] {
   transition: all 0.4s ease;
   font-family: monospace;
   text-transform: uppercase;
+  -webkit-appearance: none;
+  appearance: none;
+  line-height: 1;
 }
 
 input[type="text"] {
@@ -151,4 +154,18 @@ button.logout-button {
   position: fixed;
   bottom: 0;
   right: 0;
+}
+
+@media (max-width: 600px) {
+  form.login-form {
+    flex-direction: column;
+    align-items: stretch;
+  }
+
+  form.login-form select,
+  form.login-form input[type="submit"] {
+    width: 100%;
+    height: 3rem;
+    box-sizing: border-box;
+  }
 }
