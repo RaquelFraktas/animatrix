@@ -12,5 +12,7 @@
 		<%= form.text_field :name, required: true, autofocus: true, placeholder: 'USERNAME' %>
 	  <%= form.submit "Save name", class: "btn matrix" %>
   <% end %>
-
+  <% @user.errors.full_messages_for(:name).each do |message| %>
+    <p style="display: flex; justify-content: center; color: red;" data-controller="page-shake"><%= message %></p>
+  <% end %>
 <% end %>

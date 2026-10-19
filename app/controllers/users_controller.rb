@@ -32,17 +32,17 @@ class UsersController < ApplicationController
   end
 
   def update
-    attributes = user_params
-
-    if @user.update(attributes)
-      if attributes[:name].present?
+    if @user.update(user_params)
+      if user_params[:name].present?
         reset_session
         session[:user_id] = @user.id
       end
 
       redirect_to @user, notice: "Player updated successfully."
     else
-      render :edit, status: :unprocessable_entity
+      # Show the name form again with the error instead of the rejected name.
+      @user.restore_attributes([ :name ])
+      render :show, status: :unprocessable_entity
     end
   end
 
