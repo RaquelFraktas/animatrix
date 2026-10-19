@@ -108,6 +108,7 @@
   color: #fff;
   text-overflow: ellipsis;
   white-space: nowrap;
+  align-items: center;
 }
 
 .highscore-kill-count {
@@ -118,9 +119,9 @@
 .kill-chart {
   box-sizing: border-box;
   width: 0;
-  min-width: 0;
+  min-width: 25%;
   max-width: 100%;
-  min-height: 2.5rem;
+  height: 2.5rem;
   display: flex;
   overflow: hidden;
   padding: 0.4rem 0.75rem;
