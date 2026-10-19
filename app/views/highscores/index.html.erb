@@ -4,6 +4,7 @@
     <div class="leaderboard">
       <span>LEADER_BOARD</span>
       <%= render "stats" %>
+      <%= render "countdown" %>
     </div>
     <div id="highscores" data-controller="scoreboard">
       <%= turbo_stream_from "highscores" %>

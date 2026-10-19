@@ -44,6 +44,11 @@ class ScansController < ApplicationController
       return
     end
 
+    if Game.locked?
+      redirect_to scan_path(qr_code: code)
+      return
+    end
+
     killer = current_user
     unless killer&.alive?
       redirect_to scan_path(qr_code: code), alert: "Sign in as a living player before scanning."
@@ -86,7 +91,9 @@ class ScansController < ApplicationController
   def scan_error_message
     return if @user.nil? || @user.name.blank? || current_user.nil? || current_user == @user
 
-    if current_user.killed?
+    if Game.locked?
+      "The sentinels have arrived. No more minds can be freed."
+    elsif current_user.killed?
       "You are dead. You can't free any more minds."
     elsif @user.killed?
       "#{@user.name} is already dead."

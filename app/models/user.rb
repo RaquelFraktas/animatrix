@@ -55,6 +55,7 @@ class User < ApplicationRecord
   end
 
   def kill!(victim)
+    return false if Game.locked?
     return false if victim == self || !victim.alive?
     return false if kills_as_killer.exists?(victim_id: victim.id)
 

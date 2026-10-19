@@ -165,3 +165,7 @@
     padding-inline: 0.5rem;
   }
 }
+.leaderboard .game-countdown {
+  color: #ff2b2b;
+  opacity: 1;
+}

@@ -1,0 +1,9 @@
+<% if (locks_at = Game.locks_at) %>
+  <span class="game-countdown"
+        data-controller="countdown"
+        data-countdown-ends-at-value="<%= locks_at.iso8601 %>"
+        data-countdown-suffix-value="REMAINING UNTIL SENTINELS ARRIVE"
+        data-countdown-finished-value="THE SENTINELS HAVE ARRIVED">
+    <%= Game.locked? ? "THE SENTINELS HAVE ARRIVED" : "REMAINING UNTIL SENTINELS ARRIVE" %>
+  </span>
+<% end %>

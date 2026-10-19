@@ -32,7 +32,9 @@ class UsersController < ApplicationController
   end
 
   def update
-    if @user.update(user_params)
+    attributes = Game.locked? ? user_params.except(:status) : user_params
+
+    if @user.update(attributes)
       if user_params[:name].present?
         reset_session
         session[:user_id] = @user.id
