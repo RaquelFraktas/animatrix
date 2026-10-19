@@ -11,7 +11,8 @@ class Kill < ApplicationRecord
     Turbo::StreamsChannel.broadcast_update_to(
       [ victim, :status ],
       target: ActionView::RecordIdentifier.dom_id(victim, :status_shake),
-      html: '<div data-controller="page-shake" data-page-shake-count-value="3" data-page-shake-reload-value="true"></div>'
+      html: '<div data-controller="page-shake" data-page-shake-count-value="3"></div>' +
+        ApplicationController.render(partial: "users/killed_notice")
     )
   rescue Redis::BaseError => error
     Rails.logger.error("Victim shake broadcast failed after kill #{id}: #{error.class}: #{error.message}")
