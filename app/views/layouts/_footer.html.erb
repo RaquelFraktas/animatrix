@@ -6,7 +6,8 @@
     <% if current_user %>
       <span style="font-size: .9rem;">Signed in as</span> <%= link_to(current_user&.name, current_user) %></span>
       <br><br>
-      <%= button_to logout_path, method: :delete, class: "matrix btn logout-button" do %>
+      <%= button_to logout_path, method: :delete, class: "matrix btn logout-button",
+                    form: { data: { turbo_confirm: "Are you sure you want to sign out?" } } do %>
         Sign out
         <div class="code-rain"></div>
       <% end %>
