@@ -85,7 +85,7 @@ class ScanControllerTest < ActionDispatch::IntegrationTest
     assert_equal 1, streams.size
     assert_equal "update", streams.first["action"]
     assert_includes streams.first.to_html, 'data-controller="page-shake"'
-    assert_includes streams.first.to_html, 'data-page-shake-reload-value="true"'
+    assert_includes streams.first.to_html, 'data-game-play-modal-reload-on-close-value="true"'
   end
 
   test "successful kill replaces the scan result with the dead state" do

@@ -10,6 +10,17 @@ class UsersControllerTest < ActionDispatch::IntegrationTest
     assert_equal user.id, session[:user_id]
   end
 
+  test "saving a taken name on show shows an error" do
+    user = User.create!(qr_code: "unnamed")
+
+    patch user_path(user), params: { user: { name: "fixture one" } }
+
+    assert_response :unprocessable_entity
+    assert_select "p", "Name has already been taken"
+    assert_select "form.save-name-form"
+    assert_nil user.reload.name
+  end
+
   test "should get index" do
     get users_index_url
     assert_response :success
