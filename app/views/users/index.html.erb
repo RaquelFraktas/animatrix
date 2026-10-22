@@ -12,3 +12,5 @@
     </li>
   <% end %>
 </ul>
+
+<%= render "pagination", css_class: "users-pagination", label: "Player pages" if @total_pages > 1 %>

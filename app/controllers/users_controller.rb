@@ -1,8 +1,10 @@
 class UsersController < ApplicationController
   before_action :set_user, only: %i[show edit update destroy]
 
+  USERS_PER_PAGE = 25
+
   def index
-    @users = User.order(:id)
+    @users = paginate(User.order(:id), USERS_PER_PAGE)
     @current_user = current_user
   end
 
@@ -57,10 +59,7 @@ class UsersController < ApplicationController
 
   # Printable sheet of every player's QR code.
   def qr_codes
-    users = User.where.not(qr_code: [ nil, "" ]).order(:id)
-    @total_pages = [ (users.count / QR_CODES_PER_PAGE.to_f).ceil, 1 ].max
-    @page = params[:page].to_i.clamp(1, @total_pages)
-    @users = users.offset((@page - 1) * QR_CODES_PER_PAGE).limit(QR_CODES_PER_PAGE)
+    @users = paginate(User.where.not(qr_code: [ nil, "" ]).order(:id), QR_CODES_PER_PAGE)
   end
 
   def manual_edit
@@ -107,6 +106,13 @@ class UsersController < ApplicationController
   end
 
   private
+
+  # Sets @page and @total_pages; out-of-range pages clamp to the nearest valid page.
+  def paginate(scope, per_page)
+    @total_pages = [ (scope.count / per_page.to_f).ceil, 1 ].max
+    @page = params[:page].to_i.clamp(1, @total_pages)
+    scope.offset((@page - 1) * per_page).limit(per_page)
+  end
 
   def set_user
     @user = User.find(params[:id])

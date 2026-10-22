@@ -34,7 +34,8 @@
   white-space: nowrap;
 }
 
-.qr-sheet-pagination {
+.qr-sheet-pagination,
+.users-pagination {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
@@ -42,7 +43,8 @@
   margin: 1rem 0;
 }
 
-.qr-sheet-pagination [aria-current="page"] {
+.qr-sheet-pagination [aria-current="page"],
+.users-pagination [aria-current="page"] {
   color: #fff;
 }
 
