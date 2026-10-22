@@ -8,7 +8,7 @@
   <% @users.each do |user| %>
     <figure class="qr-sheet-code">
       <%= user.qr_code_svg.html_safe %>
-      <figcaption><%= " · #{user.name}" if user.name.present? %></figcaption>
+      <figcaption><%= " #{user.name}" if user.name.present? %></figcaption>
     </figure>
   <% end %>
 </div>
