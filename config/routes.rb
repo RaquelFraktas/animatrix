@@ -2,6 +2,7 @@ Rails.application.routes.draw do
   root "home#about"
 
   resources :users
+  get "qr_codes", to: "users#qr_codes"
 
   delete "logout", to: "sessions#destroy", as: :logout
   get "login", to: "sessions#new"

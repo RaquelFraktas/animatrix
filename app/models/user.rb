@@ -54,6 +54,12 @@ class User < ApplicationRecord
     "data:image/png;base64,#{Base64.strict_encode64(png)}"
   end
 
+  def qr_code_svg
+    return if qr_code.blank?
+
+    RQRCode::QRCode.new(scan_url).as_svg(module_size: 4, viewbox: true, use_path: true)
+  end
+
   def kill!(victim)
     return false if Game.locked?
     return false if victim == self || !victim.alive?

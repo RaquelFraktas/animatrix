@@ -1,0 +1,16 @@
+<div class="qr-sheet-header">
+  <h1>Player QR codes</h1>
+  <p>Page <%= @page %> of <%= @total_pages %>. Codes link to <%= ENV["APP_HOST"] %>.</p>
+  <%= render "qr_codes_pagination" %>
+</div>
+
+<div class="qr-sheet">
+  <% @users.each do |user| %>
+    <figure class="qr-sheet-code">
+      <%= user.qr_code_svg.html_safe %>
+      <figcaption><%= " · #{user.name}" if user.name.present? %></figcaption>
+    </figure>
+  <% end %>
+</div>
+
+<%= render "qr_codes_pagination" %>

@@ -53,6 +53,16 @@ class UsersController < ApplicationController
     redirect_to users_url, notice: "Player removed."
   end
 
+  QR_CODES_PER_PAGE = 48
+
+  # Printable sheet of every player's QR code.
+  def qr_codes
+    users = User.where.not(qr_code: [ nil, "" ]).order(:id)
+    @total_pages = [ (users.count / QR_CODES_PER_PAGE.to_f).ceil, 1 ].max
+    @page = params[:page].to_i.clamp(1, @total_pages)
+    @users = users.offset((@page - 1) * QR_CODES_PER_PAGE).limit(QR_CODES_PER_PAGE)
+  end
+
   def manual_edit
     @users = User.order(:name, :id)
     @user = @users.find_by(id: params[:user_id]) || @users.first
